@@ -15,7 +15,7 @@
                     <td><?=$attr['product']['title']?></td>
                     
                     <td><input type="number" class="form-control" value="<?=$attr['qty'];?>" min="1" name="qty[<?=$attr['id']?>]"></td>
-                    <td><span class="text-info"><?=$attr['product']['price']?></span></td>
+                    <td><span class="text-info"><?=$attr['sale_price']?></span></td>
                     <td><span class="text-success">$ <?=$attr['subtotal']?></span></td>
                 </tr>
             <?endforeach;?>

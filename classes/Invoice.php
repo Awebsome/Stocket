@@ -21,59 +21,99 @@ class Invoice{
 	 */
 	public function make()
 	{
+        $this->setQty();
         $invoice['subtotal']    = Self::setSubtotal();
-        $invoice['items']       = Self::itemList();
+
+        $invoice['items']       = $this->getItems();
 
 		return $invoice;
 	}
 	
-	/**
-	 * ItemList
-	 * @param  int $saleId [get recordId]
-	 * @return array       [items Sale]
-	 */
-	public function itemList()
+
+    /**
+     * ------------------------------------------------
+     * getItems
+     * ------------------------------------------------
+     *  - get Item List from ItemSale "relation"
+     *  - add attr Relation with Product.
+     *  
+     * @return array awme_items_sales & awme_products(relation)
+     */
+    public function getItems(){
+
+        $Items = ItemSale::where('sale_id', $this->saleId)->get();
+        foreach ($Items as $item => $attr) {
+            $Items[$item]['product'] = Product::find($attr['product_id']);
+        }
+        return $Items;
+    }
+
+
+    /**
+     * ------------------------------------------------
+     * Set Qty
+     * ------------------------------------------------
+     * Set qty & subtotal by Model\ItemSale
+     */
+    public function setQty()
 	{
+        # Obtain Invoice Item List
+        $Items = $this->getItems();
+        
         /**
-         * itemList
+         * Si existe Request "qty"
+         * Obtiene la lista actual
+         * Recorre todos los items
+         * Aplica sale_price & Subtotal
          */
-        $itemList = ItemSale::where('sale_id', $this->saleId)->get();
-        
-        if(Request::input('qty'))
-            $requestQty = Request::input('qty');
-        
-        foreach ($itemList as $items => $item) {
+        if(Request::input('qty')){
+
+            foreach ($Items as $item => $attr) {
+                
+                $itemQty = Request::input('qty.'.$attr['id'], 1);
+                
+                if($itemQty){
+
+                    $ItemSale = ItemSale::find($attr['id']);
+                    $ItemSale->qty = $itemQty;
+
+                    $price                  = $attr['product']['price'];
+                    $ItemSale->sale_price   = ($ItemSale->sale_price <= 0) ? $attr['product']['price'] : $ItemSale->sale_price;
+                    $ItemSale->subtotal     = Calc::multiply($ItemSale->sale_price,$itemQty); #Inserta el multiplo entre precio actual x cantidad.
+                    $ItemSale->save();
+                }
+            }
+        }else {
+
             
-            $ItemSale = ItemSale::find($item['id']);
-            $product = Product::find($item['product_id']);
+            /**
+             * Si NO existe Request "qty"
+             * Obtiene la lista actual
+             * Recorre todos los items
+             * Si la cantidad es <= 1 aplica el sale_price & subtotal de Model\Product
+             */
+            foreach ($Items as $item => $attr) {
+            
+                if($attr['qty'] <= 1 && !Request::input('qty')){
 
-            if(isset($requestQty[$item['id']])){
-                $ItemSale->qty = $requestQty[$item['id']];
-                $item['qty'] = $requestQty[$item['id']];
+                    $ItemSale = ItemSale::find($attr['id']);
+                    $ItemSale->qty = 1;
+                    $price = $attr['product']['price'];
+                    $ItemSale->sale_price   = ($ItemSale->sale_price <= 0) ? $attr['product']['price'] : $ItemSale->sale_price;
+                    $ItemSale->subtotal     = $ItemSale->sale_price;
+
+                    $ItemSale->save();
+                }
             }
-
-            if($item['sale_price'] <= 0)
-            {
-                $ItemSale->sale_price = $product->price;
-                $item['sale_price'] = $product->price;
-            }
-
-            if($item['subtotal'] <= 0){
-                $ItemSale->subtotal = $product->price;
-                $item['subtotal'] = $product->price;
-            }
-
-            $ItemSale->save();
-
-            $item['product'] = $product;
         }
 
-        return $itemList;
+
+        return $Items;
 	}
 
 	/**
 	 * setSubtotal
-	 * @param  array $itemList 	[get suma "subtotal" from ItemList]
+	 * @param  array $getItems 	[get suma "subtotal" from ItemList]
 	 * @return int          	[Suma]
 	 */
 	public function setSubtotal()
@@ -82,15 +122,9 @@ class Invoice{
 		/**
          * Recalculate Invoice QTY ItemsSale List
          */
-		foreach ($this->itemList() as $items => $item) {
-            
-            $ItemSale = ItemSale::find($item['id']);
-            $subtotal = Calc::multiply($ItemSale->sale_price, $ItemSale->qty);
-            $ItemSale->subtotal = $subtotal;
-            $ItemSale->save();
-            
-            $operation[$items] = $ItemSale->subtotal;
-        }
+        $Items = ItemSale::where('sale_id', $this->saleId)->get()->toArray();
+
+		$operation = array_column($Items, 'subtotal');
 
         if(!isset($operation))
         	$operation = [];
