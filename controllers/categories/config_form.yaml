@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/awme/stocket/models/category/fields.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Category
+
+# Default redirect location
+defaultRedirect: awme/stocket/categories
+
+# Create page
+create:
+    title: Create Category
+    redirect: awme/stocket/categories/update/:id
+    redirectClose: awme/stocket/categories
+
+# Update page
+update:
+    title: Edit Category
+    redirect: awme/stocket/categories
+    redirectClose: awme/stocket/categories
+
+# Preview page
+preview:
+    title: Preview Category

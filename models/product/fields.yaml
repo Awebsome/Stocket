@@ -1,0 +1,84 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Title
+        span: left
+        placeholder: New product name
+        required: true
+
+    slug:
+        label: Slug
+        span: right
+        required: true
+        preset:
+            field: title
+            type: slug
+
+    toolbar:
+        type: partial
+        path: product_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        model:
+            tab: Manage
+            label: Model
+            type: text
+            span: left
+
+        is_enabled:
+            tab: Manage
+            label: Product Visibility
+            type: switch
+            span: right
+            default: false
+
+        is_stockable:
+            tab: Manage
+            label: Stock Tracking
+            type: switch
+            span: right
+            default: true
+
+        description:
+            tab: Manage
+            label: Description
+            type: richeditor
+            span: left
+
+        stock:
+            tab: Manage
+            label: Quantity
+            type: number
+            span: right
+
+        sku:
+            tab: Manage
+            label: SKU
+            type: text
+            span: right
+
+        price:
+            tab: Manage
+            label: Price
+            type: number
+            span: right
+
+        images:
+            tab: Manage
+            span: left
+            label: Images
+            type: Backend\FormWidgets\FileUpload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
+
+        categories:
+            tab: Categories
+            type: partial
+            path: field_categories

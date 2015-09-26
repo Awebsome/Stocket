@@ -1,0 +1,14 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+categories:
+    label: Category
+    view:
+        list: $/awme/stocket/models/category/columns.yaml
+        toolbarButtons: create|add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/awme/stocket/models/category/columns.yaml
+        form: $/awme/stocket/models/category/fields.yaml

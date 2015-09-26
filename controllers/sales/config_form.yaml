@@ -1,0 +1,33 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Sale
+
+# Model Form Field configuration
+form: $/awme/stocket/models/sale/fields.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Sale
+
+# Default redirect location
+defaultRedirect: awme/stocket/sales
+
+# Create page
+create:
+    title: New Sale
+    form: $/awme/stocket/models/sale/create_fields.yaml
+    redirect: awme/stocket/sales/update/:id
+    redirectClose: awme/stocket/sales
+
+# Update page
+update:
+    title: Edit Sale
+    form: $/awme/stocket/models/sale/update_fields.yaml
+    redirect: awme/stocket/sales
+    redirectClose: awme/stocket/sales
+
+# Preview page
+preview:
+    title: Preview Sale

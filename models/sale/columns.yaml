@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        invisible: true
+    fullname:
+        label: Full Name  
+    description:
+        label: Description
+    phone:
+        label: Phone    
+    email:
+        label: Email  
+    subtotal:
+        label: Subtotal    
+    payment:
+        label: Payment
+    created_at:
+        label: Date Created
+        type: date

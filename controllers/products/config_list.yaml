@@ -1,0 +1,37 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/awme/stocket/models/product/columns.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Product
+
+# List Title
+title: Manage Products
+
+# Link URL for each record
+recordUrl: awme/stocket/products/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 25
+
+# Displays the list column set up button
+showSetup: true
+
+# Displays the sorting link on each column
+showSorting: true
+
+# Default sorting column
+defaultSort:
+    column: created_at
+    direction: desc
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: list_toolbar

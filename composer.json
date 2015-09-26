@@ -1,0 +1,16 @@
+{
+    "name": "awme/stocket",
+    "description": "Shopping Cart for October CMS",
+    "homepage": "http://awebsome.me/",
+    "keywords": ["october", "octobercms", "ecommerce", "shop", "product", "plugin"],
+    "authors": [
+        {
+            "name": "Lucas Zamora",
+            "email": "lucaszdv@awebsome.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "gloudemans/shoppingcart": "~1.2"
+    }
+}

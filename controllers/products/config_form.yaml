@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/awme/stocket/models/product/fields.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Product
+
+# Default redirect location
+defaultRedirect: awme/stocket/products
+
+# Create page
+create:
+    title: Create Product
+    redirect: awme/stocket/products/update/:id
+    redirectClose: awme/stocket/products
+
+# Update page
+update:
+    title: Edit Product
+    redirect: awme/stocket/products
+    redirectClose: awme/stocket/products
+
+# Preview page
+preview:
+    title: Preview Product

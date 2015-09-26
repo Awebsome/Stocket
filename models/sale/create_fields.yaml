@@ -1,0 +1,73 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    fullname:
+        label: Full Name
+        span: left
+        placeholder: Full Name
+        required: true
+
+    invoice:
+        label: Invoice
+        span: right
+        placeholder: Invoice Number
+        required: true
+
+    toolbar:
+        type: partial
+        path: sale_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        description:
+            tab: Invoice
+            label: Description
+            type: richeditor
+            span: left
+
+        dni:
+            tab: Invoice
+            label: CUIL/CUIT
+            placeholder: CUIL/CUIT/DNI
+            span: right
+
+
+        phone:
+            tab: Invoice
+            label: Phone
+            placeholder: Phone
+            span: right
+
+        email:
+            tab: Invoice
+            label: Email
+            placeholder: Email
+            span: right
+
+        address:
+            tab: Invoice
+            label: Address
+            placeholder: Address
+            span: right
+
+        city:
+            tab: Invoice
+            label: City
+            placeholder: City
+            span: right
+
+        state:
+            tab: Invoice
+            label: State
+            placeholder: State
+            span: right
+
+        country:
+            tab: Invoice
+            label: Country
+            placeholder: Country
+            span: right
