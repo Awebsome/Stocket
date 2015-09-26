@@ -2,6 +2,11 @@
 
 class Calculator{
 
+	public static function format($n)
+	{
+		return number_format($n, 2, '.', '');
+	}
+
 	/**
 	 * Suma
 	 */
@@ -10,6 +15,18 @@ class Calculator{
 		return array_sum($n);
 	}
 
+	/**
+	 * Suma
+	 */
+	public static function resta($a,$b)
+	{
+		return (array_sum($a) - array_sum($b));
+	}
+
+	public static function percent($a,$b){
+
+		return ($a * $b)/100;
+	}
 	/**
 	 * Multiply
 	 */

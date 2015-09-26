@@ -21,9 +21,7 @@ class Invoice{
 	 */
 	public function make()
 	{
-        $invoice['subtotal']    = Self::opSubtotal();
-        $invoice['taxes']       = Self::opTaxes();
-		$invoice['total']		= Self::opTotal($this->saleId);
+        $invoice['subtotal']    = Self::setSubtotal();
         $invoice['items']       = Self::itemList();
 
 		return $invoice;
@@ -74,11 +72,11 @@ class Invoice{
 	}
 
 	/**
-	 * opSubtotal
+	 * setSubtotal
 	 * @param  array $itemList 	[get suma "subtotal" from ItemList]
 	 * @return int          	[Suma]
 	 */
-	public function opSubtotal()
+	public function setSubtotal()
 	{
 
 		/**
@@ -104,19 +102,67 @@ class Invoice{
         return $Sale->subtotal;
 	}
 
-
-    public function opTaxes()
+    public function getSubtotal()
     {
-        $Sale = Sale::find($this->saleId);
-        if(Request::input('tax')){
+        return Calc::format(Sale::find($this->saleId)->subtotal);
+    }
+    
+    /**
+     * ------------------------------------------------
+     * Set Taxes
+     * ------------------------------------------------
+     *  - Inserta el los taxes en json en Model\Sale
+     *
+     * @return  array $taxes from RquestInput 
+     */
+    public function setTaxes(){
 
+        $Sale = Sale::find($this->saleId);
+        $taxes = Request::input('tax');
+        if($taxes){
             $Sale->taxes = json_encode(Request::input('tax'));
             $Sale->save();
+            
+            return $taxes;
         }
-        return json_decode($Sale->taxes);
     }
 
-	public static function opTotal($saleId)
+    /**
+     * ------------------------------------------------
+     * Get Taxes
+     * ------------------------------------------------
+     * - Obtener los taxes desde el modelo
+     * 
+     * @return array $taxes from Model\Sale
+     */
+    public function getTaxes()
+    {
+        $SaleTaxes = Sale::find($this->saleId)->taxes;
+        $taxes = json_decode($SaleTaxes);
+
+        return $taxes;
+    }
+
+    public function opTaxesDiscount()
+    {
+        $tax = $this->getTaxes();
+
+        
+            if(@array_key_exists('discount', $tax)){
+                if($tax->discount->type == "$"){
+                    $total = Calc::resta([$this->getSubtotal()], [$tax->discount->amount]); 
+                }else if($tax->discount->type == "%"){
+                    $total = Calc::resta([$this->getSubtotal()], [Calc::percent($tax->discount->amount,$this->getSubtotal())]); 
+                }
+            }else $total = 0;
+
+            return Calc::format($this->getSubtotal() - $total);
+        
+    }
+
+
+    
+	public function opTotal()
 	{	
 		/**
          * Recalculate :
@@ -124,10 +170,15 @@ class Invoice{
          * - Subtotal
          * - Total
          */
-        $Sale = Sale::find($saleId);
-        $Sale->total = $Sale->subtotal;
-        $Sale->save();
+        $total = $this->getSubtotal() - $this->opTaxesDiscount();
 
-		return  $Sale->total;
+        return Calc::format($total);
 	}
+
+    public function setTotal(){
+
+        $Sale = Sale::find($this->saleId);
+        $Sale->total = $this->opTotal;
+        $Sale->save();
+    }
 }

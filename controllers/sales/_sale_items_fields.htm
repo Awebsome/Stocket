@@ -1,4 +1,5 @@
 <div id="invoice-table">
+
     <table class="table data subtotal" data-control="rowlink">
         <thead>
             <tr>
@@ -24,20 +25,20 @@
                 <td></td>
                 <td></td>
                 <td class="subtitle">Subtotal:</td>
-                <td>$ <?=$invoice['subtotal']?></td>
+                <td>$ <?=$subtotal?></td>
             </tr>
 
             <tr class="danger">
                 <td></td>
                 <td class="discount">
-                    <input  name="tax['discount']['amount']" type="number" value="">
-                    <select name="tax['discount']['type']">
-                        <option value="%">%</option>
-                        <option value="$">$</option>
+                    <input  name="tax[discount][amount]" type="number" value="<?=@$taxes->discount->amount?>">
+                    <select name="tax[discount][type]">
+                        <option value="%" <?=@($taxes->discount->type == "%") ? 'selected' :''; ?>>%</option>
+                        <option value="$" <?=@($taxes->discount->type == "$") ? 'selected' :''; ?>>$</option>
                     </select>
                 </td>
                 <td class="subtitle">Discount:</td>
-                <td>$ <?=$invoice['subtotal']?></td>
+                <td>- $ <?=@$tax_discount?></td>
             </tr>
 
             <tr class="success">
@@ -52,8 +53,9 @@
                     </button>
                 </td>
                 <td class="subtitle">Total:</td>
-                <td>$ <?=$invoice['total']?></td>
+                <td>$ <?=$total?></td>
             </tr>
         </tfoot>
     </table>
+
 </div>

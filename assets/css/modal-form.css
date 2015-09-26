@@ -24,3 +24,56 @@
 .modal form[data-request="onRelationManageUpdate"] .redactor-btn-right {
     display: none;
 }
+
+
+#invoice-table button.btn-sm.btn-info.oc-icon-calculator {
+    border-style: none;
+    font-weight: normal;
+    width: 125px;
+}
+
+#invoice-table table input.form-control {
+    font-size: 15px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 125px;
+}
+
+#invoice-table table.table.data.subtotal {
+    border-color: #d1d1d1;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#invoice-table table.table.data.subtotal th {
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 12px;
+    padding-top: 12px;
+    text-transform: uppercase;
+}
+
+#invoice-table table.table.data.subtotal tr td {
+    font-size: 16px;
+}
+
+#invoice-table td.discount input {
+    height: 30px;
+    padding-left: 5px;
+    width: 80px;
+}
+
+#invoice-table td.discount select {
+    height: 30px;
+}
+
+#invoice-table tfoot tr td.subtitle {
+    text-align: right;
+}
+
+#invoice-table tr.success td {
+    font-weight: bold;
+}
+
