@@ -15,9 +15,11 @@ columns:
     email:
         label: Email  
     subtotal:
-        label: Subtotal    
+        label: Subtotal
+    total:
+        label: Total    
     payment:
         label: Payment
     created_at:
         label: Date Created
-        type: date
+        type: datetime

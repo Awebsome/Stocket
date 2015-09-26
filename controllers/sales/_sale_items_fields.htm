@@ -25,20 +25,20 @@
                 <td></td>
                 <td></td>
                 <td class="subtitle">Subtotal:</td>
-                <td>$ <?=$subtotal?></td>
+                <td>$ <?=$invoice['subtotal']?></td>
             </tr>
 
             <tr class="danger">
                 <td></td>
                 <td class="discount">
-                    <input  name="tax[discount][amount]" type="number" value="<?=@$taxes->discount->amount?>">
+                    <input  name="tax[discount][amount]" type="number" value="<?=@$invoice['taxes']->discount->amount?>">
                     <select name="tax[discount][type]">
-                        <option value="%" <?=@($taxes->discount->type == "%") ? 'selected' :''; ?>>%</option>
-                        <option value="$" <?=@($taxes->discount->type == "$") ? 'selected' :''; ?>>$</option>
+                        <option value="%" <?=@($invoice['taxes']->discount->type == "%") ? 'selected' :''; ?>>%</option>
+                        <option value="$" <?=@($invoice['taxes']->discount->type == "$") ? 'selected' :''; ?>>$</option>
                     </select>
                 </td>
                 <td class="subtitle">Discount:</td>
-                <td>- $ <?=@$tax_discount?></td>
+                <td>- $ <?=@$invoice['tax_discount']?></td>
             </tr>
 
             <tr class="success">
@@ -53,7 +53,7 @@
                     </button>
                 </td>
                 <td class="subtitle">Total:</td>
-                <td>$ <?=$total?></td>
+                <td>$ <?=$invoice['total']?></td>
             </tr>
         </tfoot>
     </table>

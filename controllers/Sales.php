@@ -48,16 +48,12 @@ class Sales extends Controller
      */
     public function update($recordId = null, $context = null)
     {
+       
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
-        $Invoice->setTaxes();
 
         $this->vars['invoice'] = $Invoice->make();
-        $this->vars['taxes'] = $Invoice->getTaxes();
-        $this->vars['subtotal'] = $Invoice->getSubtotal();
-        $this->vars['tax_discount'] = $Invoice->opTaxesDiscount();
-        $this->vars['total'] = $Invoice->opTotal();
-
+        
         $this->asExtension('FormController')->update($recordId, $context);
     }
 
@@ -69,20 +65,10 @@ class Sales extends Controller
     {
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
-        $Invoice->setTaxes();
-
-        /**
-         * Taxes
-         */
 
         $this->vars['invoice'] = $Invoice->make();
-        $this->vars['taxes'] = $Invoice->getTaxes();
-        $this->vars['subtotal'] = $Invoice->getSubtotal();
-        $this->vars['tax_discount'] = $Invoice->opTaxesDiscount();
-        $this->vars['total'] = $Invoice->opTotal();
         
         $this->asExtension('FormController')->update($recordId, $context);
-
 
         Flash::info("Invoice Recalculated" );
     }
