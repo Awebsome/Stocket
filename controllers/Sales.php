@@ -48,29 +48,10 @@ class Sales extends Controller
      */
     public function update($recordId = null, $context = null)
     {
-        /**
-         * ItemsSale List
-         */
-        $ListItemsSale = ItemSale::where('sale_id', $recordId)->get();
-        
-        
-        foreach($ListItemsSale as $item => $attr):
-            
-            //Item Sale
-            $ItemSale = ItemSale::find($attr['id']);
-            
-            //Product attrs by ItemSale
-            $product = Product::find($ItemSale->product_id);
+        $Invoice = new Invoice;
+        $Invoice->saleId = $recordId;
 
-            $ItemSale->qty = ($ItemSale->qty < 1) ? 1 : $ItemSale->qty;
-            $ItemSale->sale_price = $product->price;
-            $ItemSale->subtotal = Calc::multiply($product->price, $ItemSale->qty);
-            $ItemSale->save();
-
-        endforeach;
-
-
-        $this->vars['invoice'] = Invoice::make($recordId);
+        $this->vars['invoice'] = $Invoice->make();
 
         $this->asExtension('FormController')->update($recordId, $context);
     }
@@ -81,38 +62,11 @@ class Sales extends Controller
      */
     public function onRecalculate($recordId = null, $context = null)
     {
-        /**
-         * Recalculate Invoice QTY ItemsSale List
-         */
-        if(Request::input('qty')):
-            foreach(Request::input('qty') as $item => $qty):            
-                //Item Sale
-                $ItemSale = ItemSale::find($item);
-                
-                //Product attrs by ItemSale
-                $product = Product::find($ItemSale->product_id);
+        $Invoice = new Invoice;
+        $Invoice->saleId = $recordId;
 
-                $ItemSale->qty = $qty;
-                $ItemSale->sale_price = $product->price;
-                $ItemSale->subtotal = Calc::multiply($product->price, $qty);
-                $ItemSale->save();
-            endforeach;
-        endif;
-
-        /**
-         * Recalculate :
-         * - Taxes
-         * - Subtotal
-         * - Total
-         */
-        $Sale = Sale::find($recordId);
-        $Sale->subtotal = Invoice::opSubtotal(Invoice::itemList($recordId));
-        $Sale->save();
-
-        /**
-         * Invoice Item List
-         */
-        $this->vars['invoice'] = Invoice::make($recordId);
+        $this->vars['invoice'] = $Invoice->make();
+        
         $this->asExtension('FormController')->update($recordId, $context);
 
 
