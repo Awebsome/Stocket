@@ -52,8 +52,9 @@ class Sales extends Controller
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
 
-        $this->vars['invoice'] = $Invoice->make();
+        $this->vars['formModel'] = Sale::find($recordId);
         
+        $this->vars['invoice'] = $Invoice->make();
         $this->asExtension('FormController')->update($recordId, $context);
     }
 
@@ -66,11 +67,20 @@ class Sales extends Controller
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
 
-        $this->vars['invoice'] = $Invoice->make();
+        $this->vars['formModel'] = Sale::find($recordId);
         
+        $this->vars['invoice'] = $Invoice->make();
         $this->asExtension('FormController')->update($recordId, $context);
 
         Flash::info("Invoice Recalculated" );
+    }
+
+    public function onCheckout($recordId = null, $context = null)
+    {
+        $Invoice = new Invoice;
+        $Invoice->saleId = $recordId;
+        $Invoice->opStock();
+        Flash::warning("Testeando");
     }
 }
 

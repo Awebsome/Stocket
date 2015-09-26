@@ -17,6 +17,7 @@ fields:
 
     toolbar:
         type: partial
+        span: left
         path: sale_toolbar
         cssClass: collapse-visible
 
@@ -34,13 +35,11 @@ secondaryTabs:
                 span: auto
                 path: sale_items_fields
 
-
         dni:
             tab: Invoice
             label: CUIL/CUIT
             placeholder: CUIL/CUIT/DNI
             span: right
-
 
         phone:
             tab: Invoice
@@ -60,17 +59,35 @@ secondaryTabs:
             placeholder: Address
             span: right
 
-        description:
-            tab: Invoice
-            label: Description
-            type: richeditor
-            span: auto
-
         city:
             tab: Invoice
             label: City
             placeholder: City
             span: right
+
+        payment:
+            tab: Invoice
+            label: Pay Method: 
+            type: radio
+            span: left
+            cssClass: payment-block
+            default: cash
+            options:
+                cash: Cash
+                credit_card: Credit Card
+                current_account: Current Account
+
+        checkout:
+                tab: Invoice
+                type: partial
+                span: left
+                path: sale_checkout
+
+        description:
+            tab: Invoice
+            label: Description
+            type: richeditor
+            span: left
 
         state:
             tab: Invoice

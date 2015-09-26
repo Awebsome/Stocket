@@ -11,7 +11,9 @@
             data-request-data="redirect:<?= (int) $isCreate ?>"
             data-hotkey="ctrl+s, cmd+s"
             data-load-indicator="Saving Product..."
-            class="btn btn-primary oc-icon-check save">
+            class="btn btn-primary oc-icon-check save"
+            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            >
             <?= e(trans('backend::lang.form.save')) ?>
         </button>
 
@@ -19,13 +21,27 @@
             type="button"
             data-request="onSave"
             data-request-data="close:1"
-            data-hotkey="ctrl+enter, cmd+enter"
+            data-hotkey="shift+enter, cmd+enter"
             data-load-indicator="Saving Product..."
-            class="btn btn-default oc-icon-check save">
+            class="btn btn-default oc-icon-check save"
+            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            >
+
             <?= e(trans('backend::lang.form.save_and_close'))?>
         </button>
 
         <?php if (!$isCreate): ?>
+        <button
+            type="button"
+            data-request="onRecalculate" 
+            data-request-update="'sale_items_fields': '#invoice-table'"
+            data-hotkey="ctrl+s, cmd+s, enter"
+            class="btn btn-info oc-icon-calculator"
+            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            >
+            Recalculate
+        </button>
+
         <button
             type="button"
             class="btn btn-default empty oc-icon-trash-o"
@@ -34,14 +50,6 @@
             data-request-confirm="Do you really want to delete this product?">
         </button>
 
-        <button
-            type="button"
-            data-request="onRecalculate" 
-            data-request-update="'sale_items_fields': '#invoice-table'"
-            data-hotkey="ctrl+s, cmd+s, enter"
-            class="btn btn-info oc-icon-calculator">
-            Recalculate
-        </button>
         <?php endif ?>
     </div>
 

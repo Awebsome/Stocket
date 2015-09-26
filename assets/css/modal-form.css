@@ -77,3 +77,47 @@
     font-weight: bold;
 }
 
+
+
+
+
+
+.payment-block .radio {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+div.payment-block {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-right: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e0e0e0;
+    border-radius: 5px;
+    background-color: #dff0d8;
+    height: 50px;
+}
+
+div.payment-block label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#total tr.info td {
+    border-style: solid;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-color: #a9a9a9;
+    border-top-width: 5px;
+}
+
+button.invoice-checkout.btn-lg.btn-success.oc-icon-shopping-cart {
+    float: right;
+    margin-top: 20px;
+    border-style: none;
+    height: 50px;
+}
+

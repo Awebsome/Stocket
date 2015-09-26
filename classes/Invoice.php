@@ -229,4 +229,22 @@ class Invoice{
         $Sale->total = $this->opTotal();
         $Sale->save();
     }
+
+    public function opStock()
+    {
+        $items = $this->getItems();
+
+        foreach ($items as $item => $attr) {
+            $Product = Product::find($attr['product_id']);
+            $Product->stock = Calc::resta([$Product->stock],[$attr['qty']]);
+            $Product->save();
+        }
+
+
+        $Sale = Sale::find($this->saleId);
+        $Sale->status = 'closed';
+        $Sale->total = $this->opTotal();
+        $Sale->save();
+
+    }
 }

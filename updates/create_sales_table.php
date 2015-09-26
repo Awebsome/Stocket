@@ -23,13 +23,18 @@ class CreateSalesTable extends Migration
             $table->string('state')->nullable();
             $table->string('country')->nullable();
 
-            $table->longText('description');
+            $table->longText('description')->nullable();
 
             $table->decimal('subtotal', 10, 2)->default(0)->nullable();
             $table->string('taxes')->nullable();    # type: [amount, type] 
             $table->decimal('total', 10, 2)->default(0)->nullable();
 
-            $table->string('payment')->nullable();
+            $table->text('payment')->nullable();
+
+            $table->enum('status', ['open', 
+                                    'pending',
+                                    'closed',
+                                    'canceled'])->default('open');
 
             $table->timestamps();
         });
