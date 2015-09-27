@@ -12,7 +12,7 @@
             data-hotkey="ctrl+s, cmd+s"
             data-load-indicator="Saving Product..."
             class="btn btn-primary oc-icon-check save"
-            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            
             >
             <?= e(trans('backend::lang.form.save')) ?>
         </button>
@@ -24,7 +24,7 @@
             data-hotkey="shift+enter, cmd+enter"
             data-load-indicator="Saving Product..."
             class="btn btn-default oc-icon-check save"
-            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            
             >
 
             <?= e(trans('backend::lang.form.save_and_close'))?>
@@ -37,7 +37,7 @@
             data-request-update="'sale_items_fields': '#invoice-table'"
             data-hotkey="ctrl+s, cmd+s, enter"
             class="btn btn-info oc-icon-calculator"
-            <?=($formModel->status != 'open') ? 'disabled':'';?>
+            
             >
             Recalculate
         </button>

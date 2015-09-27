@@ -14,7 +14,7 @@
                 <tr>    
                     <td><?=$attr['product']['title']?></td>
                     
-                    <td><input type="number" class="form-control" value="<?=$attr['qty'];?>" min="1" max="<?=$attr['product']['stock'];?>" name="qty[<?=$attr['id']?>]" <?=($formModel->status != 'open') ? 'disabled':'';?>></td>
+                    <td><input type="number" class="form-control" value="<?=$attr['qty'];?>" min="1" max="<?=$attr['product']['stock'];?>" name="qty[<?=$attr['id']?>]" ></td>
                     <td><span class="text-info"><?=$attr['sale_price']?></span></td>
                     <td><span class="text-success">$ <?=$attr['subtotal']?></span></td>
                 </tr>
@@ -32,10 +32,10 @@
                 <td></td>
                 <td class="discount">
                     <input  name="tax[discount][amount]" type="number" value="<?=@$invoice['taxes']->discount->amount?>"
-                    <?=($formModel->status != 'open') ? 'disabled':'';?>
+                    
                     >
                     <select name="tax[discount][type]"
-                    <?=($formModel->status != 'open') ? 'disabled':'';?>
+                    
                     >
                         <option value="%" <?=@($invoice['taxes']->discount->type == "%") ? 'selected' :''; ?>>%</option>
                         <option value="$" <?=@($invoice['taxes']->discount->type == "$") ? 'selected' :''; ?>>$</option>
@@ -53,7 +53,7 @@
                         data-request="onRecalculate" 
                         data-request-update="'sale_items_fields': '#invoice-table'"
                         class="btn-sm btn-info oc-icon-calculator"
-                        <?=($formModel->status != 'open') ? 'disabled':'';?>
+                        
                         >
                         Recalculate
                     </button>
