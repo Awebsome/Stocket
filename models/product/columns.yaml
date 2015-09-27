@@ -5,28 +5,25 @@
 columns:
     id:
         label: ID
+        searchable: true
     sku:
-        label: SKU  
+        label: SKU
+        searchable: true
     title:
         label: Title
-    slug:
-        label: Slug    
-    price:
-        label: Price    
-    stock:
-        label: Stock
+        searchable: true
     model:
         label: Model
-#    category:
-#        label: Categories
-#        relation: categories
-#        select: title
-#        sortable: false
-#        invisible: true
+        searchable: true
+    price:
+        label: Price
+    stock:
+        label: Stock
+
     created_at:
         label: Date Created
         type: date
         invisible: true
     updated_at:
         label: Last Update
-        type: date
+        type: datetime

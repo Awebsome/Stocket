@@ -8,6 +8,10 @@ columns:
         invisible: true
     fullname:
         label: Full Name  
+        searchable: true
+    invoice:
+        label: Invoice
+        searchable: true
     description:
         label: Description
     phone:
@@ -20,6 +24,7 @@ columns:
         label: Total    
     payment:
         label: Payment
+        
     created_at:
         label: Date Created
         type: datetime

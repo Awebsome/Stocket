@@ -30,13 +30,14 @@ secondaryTabs:
             label: Model
             type: text
             span: left
+            required: true
 
         is_enabled:
             tab: Manage
             label: Product Visibility
             type: switch
             span: right
-            default: false
+            default: true
 
         is_stockable:
             tab: Manage
@@ -56,18 +57,21 @@ secondaryTabs:
             label: Quantity
             type: number
             span: right
+            required: true
 
         sku:
             tab: Manage
             label: SKU
             type: text
             span: right
+            required: true
 
         price:
             tab: Manage
             label: Price
             type: number
             span: right
+            required: true
 
         images:
             tab: Manage

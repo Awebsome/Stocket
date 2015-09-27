@@ -9,6 +9,7 @@ class Category extends Model
 {
     use \October\Rain\Database\Traits\NestedTree;
     use \October\Rain\Database\Traits\Purgeable;
+    use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
@@ -24,6 +25,20 @@ class Category extends Model
      * @var array Fillable fields
      */
     protected $fillable = ['name', 'slug', 'description', 'is_enabled', 'is_visible'];
+
+    /**
+     * @var array Validation rules
+     */
+    protected $rules = [
+        'name' => ['required', 'between:4,255'],
+        'slug' => [
+            'required',
+            'alpha_dash',
+            'between:1,255',
+            'unique:awme_stocket_categories'
+        ]
+    ];
+
 
     /**
      * @var array Purgeable fields

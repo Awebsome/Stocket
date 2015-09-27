@@ -3,24 +3,16 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        invisible: true
     sku:
-        label: SKU  
+        label: SKU
+        searchable: true
     title:
         label: Title
+        searchable: true
     model:
         label: Model
+        searchable: true
     stock:
         label: Stock
     price:
-        label: Price    
-    created_at:
-        label: Date Created
-        type: date
-        invisible: true
-    updated_at:
-        label: Last Update
-        type: date
-        invisible: true
+        label: Price

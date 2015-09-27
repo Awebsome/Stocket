@@ -18,7 +18,7 @@ recordUrl: awme/stocket/products/update/:id
 noRecordsMessage: backend::lang.list.no_records
 
 # Records to display per page
-recordsPerPage: 25
+recordsPerPage: 30
 
 # Displays the list column set up button
 showSetup: true
@@ -35,3 +35,7 @@ defaultSort:
 toolbar:
     # Partial for toolbar buttons
     buttons: list_toolbar
+
+    # Search widget configuration
+    search:
+        prompt: backend::lang.list.search_prompt

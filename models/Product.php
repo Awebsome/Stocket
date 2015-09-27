@@ -36,8 +36,10 @@ class Product extends Model
             'between:1,255',
             'unique:awme_stocket_products'
         ],
+        'model' => ['required', 'between:1,255'],
+        'stock' => ['required','numeric'],
         'sku' => ['required','unique:awme_stocket_products'],
-        'price' => ['numeric', 'max:99999999.99'],
+        'price' => ['required','numeric','min:00.25', 'max:99999999.99'],
     ];
 
     /**

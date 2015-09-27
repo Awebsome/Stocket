@@ -65,7 +65,7 @@ class Plugin extends PluginBase
         return [
             'stocket' => [
                 'label'       => 'Stock',
-                'url'         => Backend::url('awme/stocket/products'),
+                'url'         => Backend::url('awme/stocket/sales'),
                 'icon'        => 'icon-shopping-cart',
                 'permissions' => ['awme.stocket.*'],
                 'order'       => 300,
@@ -79,13 +79,6 @@ class Plugin extends PluginBase
                         'permissions' => ['awme.stocket.*'],
                     ],
 
-                    'categories' =>   [
-                        'label'       => 'Categories',
-                        'icon'        => 'icon-folder',
-                        'url'         => Backend::url('awme/stocket/categories'),
-                        'permissions' => ['awme.stocket.read_categories'],
-                    ],
-
                     'products' =>   [
                         'label'       => 'Products',
                         'icon'        => 'icon-cubes',
@@ -93,6 +86,12 @@ class Plugin extends PluginBase
                         'permissions' => ['awme.stocket.read_products'],
                     ],
 
+                    'categories' =>   [
+                        'label'       => 'Categories',
+                        'icon'        => 'icon-folder',
+                        'url'         => Backend::url('awme/stocket/categories'),
+                        'permissions' => ['awme.stocket.read_categories'],
+                    ],
                 ]
             ],
         ];
