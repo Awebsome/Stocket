@@ -51,6 +51,7 @@ return [
 		'description' 	=> 'Descripción',
 		'phone' 		=> 'Telefono',
 		'payment' 		=> 'Forma de pago',
+		'status' 		=> 'Estado',
 		'price' 		=> 'Precio',
 
 		'address' 		=> 'Dirección',

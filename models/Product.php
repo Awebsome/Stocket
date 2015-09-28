@@ -51,10 +51,11 @@ class Product extends Model
      * @var array Relations
      */
     public $belongsToMany = [
-        'categories' => ['AWME\Stocket\Models\Category',
-            'table' => 'awme_stocket_prod_cat',
-            'order' => 'name',
-        ],
+        'categories' => [
+            'AWME\Stocket\Models\Category',
+            'table'    => 'awme_stocket_prod_cat',
+            'key'      => 'product_id',
+        ]
     ];
 
     /**

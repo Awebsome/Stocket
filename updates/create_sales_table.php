@@ -29,7 +29,9 @@ class CreateSalesTable extends Migration
             $table->string('taxes')->nullable();    # type: [amount, type] 
             $table->decimal('total', 10, 2)->default(0)->nullable();
 
-            $table->text('payment')->nullable();
+            $table->enum('payment', ['cash', 
+                                    'credit_card',
+                                    'current_account'])->default('cash');
 
             $table->enum('status', ['open', 
                                     'pending',

@@ -24,6 +24,8 @@ columns:
         label: awme.stocket::lang.sales.total    
     payment:
         label: awme.stocket::lang.invoice.payment
+    status:
+        label: awme.stocket::lang.invoice.status
 
     created_at:
         label: Date Created

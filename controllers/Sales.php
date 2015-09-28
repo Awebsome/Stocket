@@ -14,6 +14,7 @@ use AWME\Stocket\Models\Product;
 
 use AWME\Stocket\Classes\Calculator as Calc;
 use AWME\Stocket\Classes\Invoice;
+use AWME\Stocket\Classes\Widget;
 
 /**
  * Sales Back-end Controller
@@ -43,6 +44,16 @@ class Sales extends Controller
 
         $this->addCss($this->assetsPath.'/css/modal-form.css');
         $this->addJs($this->assetsPath.'/js/product-form.js');
+    }
+
+    public function index()
+    {
+        $Widget = new Widget;
+
+        $this->vars['widget'] = $Widget->getAll();
+
+        // Call the ListController behavior index() method
+        $this->asExtension('ListController')->index();
     }
 
     /**

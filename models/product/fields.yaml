@@ -46,43 +46,44 @@ secondaryTabs:
             span: right
             default: true
 
-        description:
+        images:
             tab: awme.stocket::lang.products.product
-            label: awme.stocket::lang.invoice.description
-            type: richeditor
+            label: awme.stocket::lang.products.images
+            type: Backend\FormWidgets\FileUpload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
             span: left
+
+        categories:
+            tab: awme.stocket::lang.products.product
+            type: partial
+            path: field_categories
+            span: right
 
         stock:
             tab: awme.stocket::lang.products.product
             label: Stock
             type: number
-            span: right
+            span: left
             required: true
+
+        description:
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.invoice.description
+            type: richeditor
+            span: right
 
         sku:
             tab: awme.stocket::lang.products.product
             label: SKU
             type: text
-            span: right
+            span: left
             required: true
 
         price:
             tab: awme.stocket::lang.products.product
             label: awme.stocket::lang.invoice.price
             type: number
-            span: right
-            required: true
-
-        images:
-            tab: awme.stocket::lang.products.product
             span: left
-            label: awme.stocket::lang.products.images
-            type: Backend\FormWidgets\FileUpload
-            mode: image
-            imageHeight: 150
-            imageWidth: 150
-
-        categories:
-            tab: awme.stocket::lang.categories.category
-            type: partial
-            path: field_categories
+            required: true

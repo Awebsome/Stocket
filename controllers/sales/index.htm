@@ -2,29 +2,38 @@
     <div data-control="toolbar">
         <div class="scoreboard-item control-chart" data-control="chart-pie">
             <ul>
-                <li data-color="#95b753"><?=e(trans('awme.stocket::lang.sales.cash'))?> <span>150</span></li>
-                <li data-color="#e5a91a"><?=e(trans('awme.stocket::lang.sales.credit_card'))?> <span>75</span></li>
-                <li data-color="#cc3300"><?=e(trans('awme.stocket::lang.sales.current_account'))?> <span>18</span></li>
+                <li data-color="#95b753"><?=e(trans('awme.stocket::lang.sales.cash'))?> <span><?=$widget['sale']['cash']?></span></li>
+                <li data-color="#e5a91a"><?=e(trans('awme.stocket::lang.sales.credit_card'))?> <span><?=$widget['sale']['credit_card']?></span></li>
+                <li data-color="#cc3300"><?=e(trans('awme.stocket::lang.sales.current_account'))?> <span><?=$widget['sale']['current_account']?></span></li>
             </ul>
         </div>
 
         <div class="scoreboard-item control-chart" data-control="chart-bar">
             <ul>
-                <li data-color="#e5a91a">Duendes <span>60</span></li>
-                <li data-color="#95b753">Fuentes <span>34</span></li>
-                <li data-color="#cc3300">Lamparas <span>15</span></li>
+                <li data-color="#95b753">
+                    <?=current(array_keys(array_slice($widget['top_item_sales'], 0,1)))?> 
+                    <span><?=current(array_slice($widget['top_item_sales'], 0,1))?></span>
+                </li>
+                <li data-color="#e5a91a">
+                    <?=current(array_keys(array_slice($widget['top_item_sales'], 1,2)))?> 
+                    <span><?=current(array_slice($widget['top_item_sales'], 1,2))?></span>
+                </li>
+                <li data-color="#cc3300">
+                    <?=current(array_keys(array_slice($widget['top_item_sales'], 2,3)))?> 
+                    <span><?=current(array_slice($widget['top_item_sales'], 2,3))?></span>
+                </li>
             </ul>
         </div>
 
         <div class="scoreboard-item title-value">
             <h4><?=e(trans('awme.stocket::lang.sales.sales'))?></h4>
-            <p>243</p>
+            <p class="positive"><?=$widget['sale']['total']?></p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.total_sales'))?></p>
         </div>
 
         <div class="scoreboard-item title-value">
             <h4><?=e(trans('awme.stocket::lang.sales.profit'))?></h4>
-            <p class="positive">$16000.75</p>
+            <p class="positive">$ <?=$widget['profit']?></p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.current_month'))?></p>
         </div>
 
@@ -36,7 +45,7 @@
 
         <div class="scoreboard-item title-value">
             <h4><?=e(trans('awme.stocket::lang.sales.customer'))?></h4>
-            <p class="oc-icon-star">Lucas</p>
+            <p class="oc-icon-star"><?=$widget['customer']?></p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.current_customer'))?></p>
         </div>
 

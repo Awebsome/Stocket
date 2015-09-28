@@ -26,11 +26,13 @@ fields:
         label: Enable category
         span: right
         type: switch
+        default: true
 
     is_visible:
         label: Show in menus
         span: right
         type: switch
+        default: true
 
 #    is_subcategory:
 #        label: Make it a subcategory?
