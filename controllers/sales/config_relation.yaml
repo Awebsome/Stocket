@@ -3,7 +3,7 @@
 # ===================================
 
 products:
-    label: Product
+    label: awme.stocket::lang.sales.product
     view:
         list: $/awme/stocket/models/product/sale_columns.yaml
         toolbarButtons: add|remove

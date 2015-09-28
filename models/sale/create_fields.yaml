@@ -4,15 +4,15 @@
 
 fields:
     fullname:
-        label: Full Name
+        label: awme.stocket::lang.invoice.fullname
         span: left
-        placeholder: Full Name
+        placeholder: awme.stocket::lang.invoice.fullname
         required: true
 
     invoice:
-        label: Invoice
+        label: awme.stocket::lang.invoice.invoice
         span: right
-        placeholder: Invoice Number
+        placeholder: awme.stocket::lang.invoice.invoice_number
         required: true
 
     toolbar:
@@ -24,50 +24,50 @@ secondaryTabs:
     stretch: true
     fields:
         description:
-            tab: Invoice
-            label: Description
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.description
             type: richeditor
             span: left
 
         dni:
-            tab: Invoice
+            tab: awme.stocket::lang.invoice.invoicing
             label: CUIL/CUIT
             placeholder: CUIL/CUIT/DNI
             span: right
 
 
         phone:
-            tab: Invoice
-            label: Phone
-            placeholder: Phone
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.phone
+            placeholder: awme.stocket::lang.invoice.phone
             span: right
 
         email:
-            tab: Invoice
+            tab: awme.stocket::lang.invoice.invoicing
             label: Email
             placeholder: Email
             span: right
 
         address:
-            tab: Invoice
-            label: Address
-            placeholder: Address
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.address
+            placeholder: awme.stocket::lang.invoice.address
             span: right
 
         city:
-            tab: Invoice
-            label: City
-            placeholder: City
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.city
+            placeholder: awme.stocket::lang.invoice.city
             span: right
 
         state:
-            tab: Invoice
-            label: State
-            placeholder: State
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.state
+            placeholder: awme.stocket::lang.invoice.state
             span: right
 
         country:
-            tab: Invoice
-            label: Country
-            placeholder: Country
+            tab: awme.stocket::lang.invoice.invoicing
+            label: awme.stocket::lang.invoice.country
+            placeholder: awme.stocket::lang.invoice.country
             span: right

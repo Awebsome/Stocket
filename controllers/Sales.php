@@ -2,6 +2,8 @@
 
 use Flash;
 use Request;
+use Redirect;
+use Backend;
 use BackendMenu;
 use ApplicationException;
 
@@ -72,7 +74,7 @@ class Sales extends Controller
         $this->vars['invoice'] = $Invoice->make();
         $this->asExtension('FormController')->update($recordId, $context);
 
-        Flash::info("Invoice Recalculated" );
+        Flash::info(trans('awme.stocket::lang.sales.sale_recalculate'));
     }
 
     public function onCheckout($recordId = null, $context = null)
@@ -80,7 +82,10 @@ class Sales extends Controller
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
         $Invoice->opStock();
-        Flash::warning("Testeando");
+        Flash::success(trans('awme.stocket::lang.sales.sale_successfully'));
+
+        //Redirect To Sale
+        return Redirect::to(Backend::url('awme/stocket/sales'));
     }
 }
 

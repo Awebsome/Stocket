@@ -4,9 +4,9 @@
 
 fields:
     title:
-        label: Title
+        label: awme.stocket::lang.products.title
         span: left
-        placeholder: New product name
+        placeholder: awme.stocket::lang.products.product_name
         required: true
 
     slug:
@@ -26,63 +26,63 @@ secondaryTabs:
     stretch: true
     fields:
         model:
-            tab: Manage
-            label: Model
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.products.model
             type: text
             span: left
             required: true
 
         is_enabled:
-            tab: Manage
-            label: Product Visibility
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.products.is_enabled
             type: switch
             span: right
             default: true
 
         is_stockable:
-            tab: Manage
-            label: Stock Tracking
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.products.is_stockable
             type: switch
             span: right
             default: true
 
         description:
-            tab: Manage
-            label: Description
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.invoice.description
             type: richeditor
             span: left
 
         stock:
-            tab: Manage
-            label: Quantity
+            tab: awme.stocket::lang.products.product
+            label: Stock
             type: number
             span: right
             required: true
 
         sku:
-            tab: Manage
+            tab: awme.stocket::lang.products.product
             label: SKU
             type: text
             span: right
             required: true
 
         price:
-            tab: Manage
-            label: Price
+            tab: awme.stocket::lang.products.product
+            label: awme.stocket::lang.invoice.price
             type: number
             span: right
             required: true
 
         images:
-            tab: Manage
+            tab: awme.stocket::lang.products.product
             span: left
-            label: Images
+            label: awme.stocket::lang.products.images
             type: Backend\FormWidgets\FileUpload
             mode: image
             imageHeight: 150
             imageWidth: 150
 
         categories:
-            tab: Categories
+            tab: awme.stocket::lang.categories.category
             type: partial
             path: field_categories

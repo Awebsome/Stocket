@@ -10,13 +10,13 @@ columns:
         label: SKU
         searchable: true
     title:
-        label: Title
+        label: awme.stocket::lang.products.title
         searchable: true
     model:
-        label: Model
+        label: awme.stocket::lang.products.model
         searchable: true
     price:
-        label: Price
+        label: awme.stocket::lang.invoice.price
     stock:
         label: Stock
 

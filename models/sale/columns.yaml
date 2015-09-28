@@ -7,24 +7,24 @@ columns:
         label: ID
         invisible: true
     fullname:
-        label: Full Name  
+        label: awme.stocket::lang.invoice.fullname
         searchable: true
     invoice:
-        label: Invoice
+        label: awme.stocket::lang.invoice.invoice
         searchable: true
     description:
-        label: Description
+        label: awme.stocket::lang.invoice.description
     phone:
-        label: Phone    
+        label: awme.stocket::lang.invoice.phone    
     email:
-        label: Email  
+        label: Email 
     subtotal:
-        label: Subtotal
+        label: awme.stocket::lang.sales.subtotal
     total:
-        label: Total    
+        label: awme.stocket::lang.sales.total    
     payment:
-        label: Payment
-        
+        label: awme.stocket::lang.invoice.payment
+
     created_at:
         label: Date Created
         type: datetime

@@ -9,7 +9,7 @@ list: $/awme/stocket/models/product/columns.yaml
 modelClass: AWME\Stocket\Models\Product
 
 # List Title
-title: Manage Products
+title: awme.stocket::lang.products.manage_product
 
 # Link URL for each record
 recordUrl: awme/stocket/products/update/:id

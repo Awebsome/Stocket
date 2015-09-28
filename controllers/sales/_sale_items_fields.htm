@@ -3,10 +3,10 @@
     <table class="table data subtotal" data-control="rowlink">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Subtotal</th>
+                <th><?=e(trans('awme.stocket::lang.sales.title'))?></th>
+                <th><?=e(trans('awme.stocket::lang.sales.quantity'))?></th>
+                <th><?=e(trans('awme.stocket::lang.sales.price'))?></th>
+                <th><?=e(trans('awme.stocket::lang.sales.subtotal'))?></th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
             <tr class="info">
                 <td></td>
                 <td></td>
-                <td class="subtitle">Subtotal:</td>
+                <td class="subtitle"><?=e(trans('awme.stocket::lang.sales.subtotal'))?>:</td>
                 <td>$ <?=$invoice['subtotal']?></td>
             </tr>
 
@@ -41,7 +41,7 @@
                         <option value="$" <?=@($invoice['taxes']->discount->type == "$") ? 'selected' :''; ?>>$</option>
                     </select>
                 </td>
-                <td class="subtitle">Discount:</td>
+                <td class="subtitle"><?=e(trans('awme.stocket::lang.sales.discount'))?>:</td>
                 <td>- $ <?=@$invoice['tax_discount']?></td>
             </tr>
 
@@ -55,10 +55,10 @@
                         class="btn-sm btn-info oc-icon-calculator"
                         
                         >
-                        Recalculate
+                        <?=e(trans('awme.stocket::lang.sales.recalculate'))?>
                     </button>
                 </td>
-                <td class="subtitle">Total:</td>
+                <td class="subtitle"><?=e(trans('awme.stocket::lang.sales.total'))?>:</td>
                 <td>$ <?=$invoice['total']?></td>
             </tr>
         </tfoot>

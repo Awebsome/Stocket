@@ -22,7 +22,7 @@ class Sale extends Model
         'invoice' => [
             'between:1,45',
             'unique:awme_stocket_sales'
-        ]
+        ],
     ];
 
     /**

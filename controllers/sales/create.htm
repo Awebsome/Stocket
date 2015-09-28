@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
 <style>div.control-breadcrumb {margin-bottom: 0;}</style>
     <ul>
-        <li><a href="<?= Backend::url('awme/stocket/sales') ?>">Sales</a></li>
+        <li><a href="<?= Backend::url('awme/stocket/sales') ?>"><?=e(trans('awme.stocket::lang.sales.sales'))?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -19,6 +19,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('awme/stocket/sales') ?>" class="btn btn-default">Return to product list</a></p>
+    <p><a href="<?= Backend::url('awme/stocket/sales') ?>" class="btn btn-default"><?=e(trans('awme.stocket::lang.sales.return_to_manage_sales'))?></a></p>
 
 <?php endif ?>

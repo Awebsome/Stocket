@@ -1,2 +1,52 @@
+<div class="scoreboard">
+    <div data-control="toolbar">
+        <div class="scoreboard-item control-chart" data-control="chart-pie">
+            <ul>
+                <li data-color="#95b753"><?=e(trans('awme.stocket::lang.sales.cash'))?> <span>150</span></li>
+                <li data-color="#e5a91a"><?=e(trans('awme.stocket::lang.sales.credit_card'))?> <span>75</span></li>
+                <li data-color="#cc3300"><?=e(trans('awme.stocket::lang.sales.current_account'))?> <span>18</span></li>
+            </ul>
+        </div>
+
+        <div class="scoreboard-item control-chart" data-control="chart-bar">
+            <ul>
+                <li data-color="#e5a91a">Duendes <span>60</span></li>
+                <li data-color="#95b753">Fuentes <span>34</span></li>
+                <li data-color="#cc3300">Lamparas <span>15</span></li>
+            </ul>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?=e(trans('awme.stocket::lang.sales.sales'))?></h4>
+            <p>243</p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.total_sales'))?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?=e(trans('awme.stocket::lang.sales.profit'))?></h4>
+            <p class="positive">$16000.75</p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.current_month'))?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?=e(trans('awme.stocket::lang.sales.expense'))?></h4>
+            <p class="negative">$3240.90</p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.current_month'))?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?=e(trans('awme.stocket::lang.sales.customer'))?></h4>
+            <p class="oc-icon-star">Lucas</p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.current_customer'))?></p>
+        </div>
+
+        <div class="scoreboard-item title-value goal-meter" data-control="goal-meter" data-value="88">
+            <h4><?=e(trans('awme.stocket::lang.sales.meter'))?></h4>
+            <p>95%</p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.month_meter'))?></p>
+        </div>
+    </div>
+</div>
+
 
 <?= $this->listRender() ?>

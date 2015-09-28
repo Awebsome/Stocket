@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('awme/stocket/sales') ?>">Sales</a></li>
+        <li><a href="<?= Backend::url('awme/stocket/sales') ?>"><?=e(trans('awme.stocket::lang.sales.sales'))?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>

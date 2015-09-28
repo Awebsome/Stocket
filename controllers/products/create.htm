@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
 <style>div.control-breadcrumb {margin-bottom: 0;}</style>
     <ul>
-        <li><a href="<?= Backend::url('awme/stocket/products') ?>">Products</a></li>
+        <li><a href="<?= Backend::url('awme/stocket/products') ?>"><?=e(trans('awme.stocket::lang.products.products'))?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>

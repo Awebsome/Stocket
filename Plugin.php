@@ -20,7 +20,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'Stocket',
-            'description' => 'The eCommerce plugin that lets you set up an online/local shop with ease.',
+            'description' => 'awme.stocket::lang.plugin.description',
             'author'      => 'AWME/LucasZdv',
             'icon'        => 'icon-shopping-cart'
         ];
@@ -64,7 +64,7 @@ class Plugin extends PluginBase
     {
         return [
             'stocket' => [
-                'label'       => 'Stock',
+                'label'       => 'awme.stocket::lang.plugin.name',
                 'url'         => Backend::url('awme/stocket/sales'),
                 'icon'        => 'icon-shopping-cart',
                 'permissions' => ['awme.stocket.*'],
@@ -73,21 +73,21 @@ class Plugin extends PluginBase
                 'sideMenu' => [
 
                     'sales' =>   [
-                        'label'       => 'Sales',
+                        'label'       => 'awme.stocket::lang.sales.menu_label',
                         'icon'        => 'icon-cart-plus',
                         'url'         => Backend::url('awme/stocket/sales'),
                         'permissions' => ['awme.stocket.*'],
                     ],
 
                     'products' =>   [
-                        'label'       => 'Products',
+                        'label'       => 'awme.stocket::lang.products.menu_label',
                         'icon'        => 'icon-cubes',
                         'url'         => Backend::url('awme/stocket/products'),
                         'permissions' => ['awme.stocket.read_products'],
                     ],
 
                     'categories' =>   [
-                        'label'       => 'Categories',
+                        'label'       => 'awme.stocket::lang.categories.menu_label',
                         'icon'        => 'icon-folder',
                         'url'         => Backend::url('awme/stocket/categories'),
                         'permissions' => ['awme.stocket.read_categories'],

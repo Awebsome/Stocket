@@ -9,7 +9,7 @@ list: $/awme/stocket/models/sale/columns.yaml
 modelClass: AWME\Stocket\Models\Sale
 
 # List Title
-title: Manage Sales
+title: awme.stocket::lang.sales.manage_sales
 
 # Link URL for each record
 recordUrl: awme/stocket/sales/update/:id

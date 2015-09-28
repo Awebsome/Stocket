@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Sale
+name: awme.stocket::lang.sales.sale
 
 # Model Form Field configuration
 form: $/awme/stocket/models/sale/fields.yaml
@@ -16,18 +16,18 @@ defaultRedirect: awme/stocket/sales
 
 # Create page
 create:
-    title: New Sale
+    title: awme.stocket::lang.sales.new_sale
     form: $/awme/stocket/models/sale/create_fields.yaml
     redirect: awme/stocket/sales/update/:id
     redirectClose: awme/stocket/sales
 
 # Update page
 update:
-    title: Edit Sale
+    title: awme.stocket::lang.sales.edit_sale
     form: $/awme/stocket/models/sale/update_fields.yaml
     redirect: awme/stocket/sales
     redirectClose: awme/stocket/sales
 
 # Preview page
 preview:
-    title: Preview Sale
+    title: awme.stocket::lang.sales.preview_sale

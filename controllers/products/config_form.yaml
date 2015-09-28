@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Product
+name: awme.stocket::lang.products.product
 
 # Model Form Field configuration
 form: $/awme/stocket/models/product/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: awme/stocket/products
 
 # Create page
 create:
-    title: Create Product
+    title: awme.stocket::lang.products.new_product
     redirect: awme/stocket/products/update/:id
     redirectClose: awme/stocket/products
 
 # Update page
 update:
-    title: Edit Product
+    title: awme.stocket::lang.products.edit_product
     redirect: awme/stocket/products
     redirectClose: awme/stocket/products
 
 # Preview page
 preview:
-    title: Preview Product
+    title: awme.stocket::lang.products.preview_product

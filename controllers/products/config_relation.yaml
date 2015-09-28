@@ -3,7 +3,7 @@
 # ===================================
 
 categories:
-    label: Category
+    label: awme.stocket::lang.categories.category
     view:
         list: $/awme/stocket/models/category/columns.yaml
         toolbarButtons: create|add|remove
