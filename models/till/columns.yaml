@@ -6,23 +6,33 @@ columns:
     id:
         label: ID
         invisible: true
+
     created_at:
-        label: Date
+        label: awme.stocket::lang.tills.created_at
+        type: datetime
+        format:  D d/m/Y H:i
         searchable: true
+
     action:
-        label: Action
+        label: awme.stocket::lang.tills.action
         searchable: true
+
     seller:
-        label: Seller
+        label: awme.stocket::lang.sales.customer
         searchable: true
+
     description:
-        label: Description
+        label: awme.stocket::lang.tills.description
         searchable: true
+
     cash:
-        label: Cash
+        label: awme.stocket::lang.sales.cash
+
     credit_card: 
-        label: Credit Card
+        label: awme.stocket::lang.sales.credit_card
+
     total:
-        label: Total
+        label: awme.stocket::lang.sales.total
+
     till:
-        label: Till
+        label: awme.stocket::lang.tills.in_till

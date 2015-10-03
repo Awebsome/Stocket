@@ -35,7 +35,6 @@ class Tills extends Controller
     public function index()
     {
         $this->vars['cash_register']['is_open'] = CashRegister::is_open();
-        $this->vars['onClosing'] = CashRegister::onClosing();
 
         // Call the ListController behavior index() method
         $this->asExtension('ListController')->index();

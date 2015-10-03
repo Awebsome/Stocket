@@ -16,7 +16,7 @@ fields:
         cssClass: hidden
 
     cash:
-        label: Cash
+        label: awme.stocket::lang.sales.cash
         type: number
         required: true
         span: left

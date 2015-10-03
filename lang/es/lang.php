@@ -44,7 +44,17 @@ return [
     ],
 
     'tills' => [
-    	'menu_label' 	=> 'Caja',
+        'menu_label'    => 'Caja',
+        'manage_tills'    => 'Administrar Caja',
+        'operation'    => 'Operación',
+        'new_operation'    => 'Nueva Operación',
+        'edit_operation'    => 'Editar Operación',
+        'preview_operation'    => 'Operaciones',
+        'action'    => 'Operación',
+        'description'    => 'Descripción',
+        'in_till'    => 'En Caja',
+
+    	'created_at' 	=> 'Fecha y Hora',
     	'opening_till' 	=> 'Apertura de caja',
     	'closing_till' 	=> 'Cierre de caja',
     	'deposit' 		=> 'Ingreso de Dinero',

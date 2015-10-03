@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Till
+name: awme.stocket::lang.tills.operation
 
 # Model Form Field configuration
 form: $/awme/stocket/models/till/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: awme/stocket/tills
 
 # Create page
 create:
-    title: Create Till
+    title: awme.stocket::lang.tills.new_operation
     redirect: awme/stocket/tills/update/:id
     redirectClose: awme/stocket/tills
 
 # Update page
 update:
-    title: Edit Till
+    title: awme.stocket::lang.tills.edit_operation
     redirect: awme/stocket/tills
     redirectClose: awme/stocket/tills
 
 # Preview page
 preview:
-    title: Preview Till
+    title: awme.stocket::lang.tills.preview_operation

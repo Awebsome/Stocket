@@ -9,16 +9,16 @@ list: $/awme/stocket/models/till/columns.yaml
 modelClass: AWME\Stocket\Models\Till
 
 # List Title
-title: Manage Tills
+title: awme.stocket::lang.tills.manage_tills
 
 # Link URL for each record
-recordUrl: awme/stocket/tills/update/:id
+#recordUrl: awme/stocket/tills/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
 
 # Records to display per page
-recordsPerPage: 20
+recordsPerPage: 50
 
 # Displays the list column set up button
 showSetup: true
@@ -27,9 +27,9 @@ showSetup: true
 showSorting: true
 
 # Default sorting column
-# defaultSort:
-#     column: created_at
-#     direction: desc
+defaultSort:
+    column: created_at
+    direction: desc
 
 # Display checkboxes next to each record
 # showCheckboxes: true
