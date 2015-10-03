@@ -3,6 +3,9 @@
 use Model;
 use Carbon\Carbon;
 
+use ValidationException;
+
+use AWME\Stocket\Classes\CashRegister;
 /**
  * Sale Model
  */
@@ -58,5 +61,14 @@ class Sale extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    public function beforeCreate()
+    {
+        if (!CashRegister::is_open()) {
+            throw new ValidationException([
+               'please_opening_cash_register' => trans('awme.stocket::lang.sales.please_opening_cash_register')
+            ]);
+        }
+    }
 
 }

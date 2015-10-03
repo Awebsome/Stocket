@@ -37,6 +37,7 @@ return [
 		'credit_card' 	=> 'Tarjeta',
 		'current_account' => 'CTE',
 
+        'please_opening_cash_register' => 'Usted aún no ha hecho la apertura de caja, para realizar ventas.',
         'sale_recalculate' => 'Factura recalculada exitosamente!',
         'sale_successfully' => 'Venta realizada con éxito!',
         'return_to_manage_sales' => 'Volver a gestión de ventas',
@@ -50,7 +51,9 @@ return [
     	'sale' 			=> 'Nueva Venta',
     	'withdrawal' 	=> 'Retiro de Dinero',
     	'deposit_withdrawl' 	=> 'Ingreso / Retiro',
-    	'opening_successfully'		=> 'Apertuda de caja realizada con éxito.',
+        'confirm_opening'       => '¿Desea realizar la apertura de caja?',
+        'confirm_closed'       => '¿Desea realizar el cierre de caja correspondiente?',
+    	'opening_successfully'	=> 'Apertuda de caja realizada con éxito.',
     	'already_opening'		=> 'Ya haz realizado la apertura de caja o aún tienes un cierre pendiente.',
     	'closed_successfully'		=> 'Cierra de caja realizado con éxito.',
     	'already_closed'		=> 'Ya haz realizado el cierre de caja o aún no haz hecho una apertura.',

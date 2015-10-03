@@ -159,7 +159,7 @@ class CashRegister
 			'total_credit_sales' => $credit_sales,	# total de ventas en tarjeta
 			'total_witdrawls' => $withdrawals,		# total de retiros de dinero
 			'total_all_sales' => Calc::suma([$cash_sales, $credit_sales]),	# total de todas las ventas
-			'total_till'	=> Calc::resta([$cash_sales, $deposites, $getLastOpen['till']], [$withdrawals, $credit_sales]), # lo que queda en caja
+			'total_till'	=> Calc::resta([$cash_sales, $deposites, $getLastOpen['till']], [$withdrawals]), # lo que queda en caja
 		];
 
 		return (object) $till;
