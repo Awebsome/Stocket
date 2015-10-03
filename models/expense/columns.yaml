@@ -1,0 +1,27 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        disabled: true
+        invisible: true
+
+    title:
+        label: awme.stocket::lang.expenses.title
+        searchable: true
+
+    description:
+        label: awme.stocket::lang.expenses.description
+    
+    amount:
+        label: awme.stocket::lang.expenses.amount
+
+    expiration:
+        label: awme.stocket::lang.expenses.expiration
+        type: datetime
+        format: d/m/Y
+
+    status:
+        label: awme.stocket::lang.expenses.status

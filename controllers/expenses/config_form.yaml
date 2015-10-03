@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: awme.stocket::lang.expenses.expense
+
+# Model Form Field configuration
+form: $/awme/stocket/models/expense/fields.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Expense
+
+# Default redirect location
+defaultRedirect: awme/stocket/expenses
+
+# Create page
+create:
+    title: awme.stocket::lang.expenses.new_expense
+    redirect: awme/stocket/expenses/update/:id
+    redirectClose: awme/stocket/expenses
+
+# Update page
+update:
+    title: awme.stocket::lang.expenses.edit_expense
+    redirect: awme/stocket/expenses
+    redirectClose: awme/stocket/expenses
+
+# Preview page
+preview:
+    title: awme.stocket::lang.expenses.expenses

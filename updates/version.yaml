@@ -5,4 +5,5 @@
     - create_prod_cat_table.php
     - create_sales_table.php
     - create_items_sales_table.php
+    - create_expenses_table.php
     - create_tills_table.php

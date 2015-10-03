@@ -84,6 +84,13 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('awme/stocket/sales'),
                         'permissions' => ['awme.stocket.*'],
                     ],
+
+                    'expenses' =>   [
+                        'label'       => 'awme.stocket::lang.sales.expenses',
+                        'icon'        => 'icon-heartbeat',
+                        'url'         => Backend::url('awme/stocket/expenses'),
+                        'permissions' => ['awme.stocket.*'],
+                    ],
                     
                     'products' =>   [
                         'label'       => 'awme.stocket::lang.products.menu_label',

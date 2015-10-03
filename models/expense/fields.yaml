@@ -1,0 +1,38 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label: awme.stocket::lang.expenses.title
+        searchable: true
+        required: true
+        span: left
+
+    expiration:
+        type: datepicker
+        label: awme.stocket::lang.expenses.expiration
+        mode: date
+        span: right
+
+    amount:
+        type: number
+        label: awme.stocket::lang.expenses.amount
+        required: true
+        span: left
+
+    status:
+        type: dropdown
+        label: awme.stocket::lang.expenses.status
+        required: true
+        options:
+            pending: awme.stocket::lang.expenses.paid_pending
+            paid: awme.stocket::lang.expenses.paid
+        span: right
+
+    description:
+        type: textarea
+        label: awme.stocket::lang.expenses.description
+        span: full
+        

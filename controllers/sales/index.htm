@@ -39,7 +39,7 @@
 
         <div class="scoreboard-item title-value">
             <h4><?=e(trans('awme.stocket::lang.sales.expense'))?></h4>
-            <p class="negative">$3240.90</p>
+            <p class="negative">$<?=$widget['total_expenses']?></p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.current_month'))?></p>
         </div>
 
@@ -49,9 +49,9 @@
             <p class="description"><?=e(trans('awme.stocket::lang.sales.current_customer'))?></p>
         </div>
 
-        <div class="scoreboard-item title-value goal-meter" data-control="goal-meter" data-value="88">
-            <h4><?=e(trans('awme.stocket::lang.sales.meter'))?></h4>
-            <p>95%</p>
+        <div class="scoreboard-item title-value goal-meter" data-control="goal-meter" data-value="<?=$widget['covered_expenses']?>">
+            <h4><?=e(trans('awme.stocket::lang.sales.covered_expenses'))?></h4>
+            <p><?=$widget['covered_expenses']?>%</p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.month_meter'))?></p>
         </div>
     </div>

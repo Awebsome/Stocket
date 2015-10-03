@@ -2,6 +2,7 @@
 
 use BackendAuth;
 use AWME\Stocket\Models\Product;
+use AWME\Stocket\Models\Expense;
 use AWME\Stocket\Models\Sale;
 use AWME\Stocket\Models\ItemSale;
 
@@ -30,6 +31,8 @@ class Widget
         $widget['sale'] = $this->getSales();
         $widget['profit'] = $this->getProfit();
         $widget['top_item_sales'] = $this->getTopItemSales();
+        $widget['total_expenses'] = $this->getExpenses();
+        $widget['covered_expenses'] = round($this->getCoveredExpenses());
 
         return $widget;
     }
@@ -63,10 +66,24 @@ class Widget
      */
     public function getProfit()
     {
-
         $profit = array_column(Sale::all()->toArray(), 'total');
-
         return array_sum($profit);
+    }
+
+    /**
+     * [getExpenses description]
+     * Gastos totales
+     * @return [type] [description]
+     */
+    public function getExpenses()
+    {
+        $expenses = array_column(Expense::all()->toArray(), 'amount');
+        return array_sum($expenses);
+    }
+
+    public function getCoveredExpenses(){
+
+        return ($this->getProfit() / $this->getExpenses()) * 100;
     }
 
     /**
