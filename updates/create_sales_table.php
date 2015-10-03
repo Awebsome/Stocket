@@ -23,8 +23,9 @@ class CreateSalesTable extends Migration
             $table->string('state')->nullable();
             $table->string('country')->nullable();
 
+            $table->string('seller')->nullable();
             $table->longText('description')->nullable();
-
+            
             $table->decimal('subtotal', 10, 2)->default(0)->nullable();
             $table->string('taxes')->nullable();    # type: [amount, type] 
             $table->decimal('total', 10, 2)->default(0)->nullable();

@@ -149,7 +149,12 @@ class Invoice{
         return $Sale->subtotal;
 	}
 
-
+    /**
+     * ------------------------------------------------
+     * Get Subtotal
+     * ------------------------------------------------
+     * 
+     */
     public function getSubtotal()
     {
         return Calc::format($this->setSubtotal());

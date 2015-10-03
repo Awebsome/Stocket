@@ -4,6 +4,7 @@ use Flash;
 use Request;
 use Redirect;
 use Backend;
+use BackendAuth;
 use BackendMenu;
 use ApplicationException;
 
@@ -11,6 +12,7 @@ use Backend\Classes\Controller;
 use AWME\Stocket\Models\Sale;
 use AWME\Stocket\Models\ItemSale;
 use AWME\Stocket\Models\Product;
+use AWME\Stocket\Models\Till;
 
 use AWME\Stocket\Classes\Calculator as Calc;
 use AWME\Stocket\Classes\Invoice;
@@ -93,6 +95,20 @@ class Sales extends Controller
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
         $Invoice->opStock();
+
+        $Sale = Sale::find($recordId);
+        
+        $Till = new Till;
+        $Till->action = 'sale';
+        $Till->seller = BackendAuth::getUser()->first_name;
+
+        if($Sale->payment == 'cash')
+            $Till->cash = $Sale->total; 
+        else $Till->credit_card = $Sale->total;
+
+        $Till->save();
+
+
         Flash::success(trans('awme.stocket::lang.sales.sale_successfully'));
 
         //Redirect To Sale

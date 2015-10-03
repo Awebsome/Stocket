@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Till
+
+# Model Form Field configuration
+form: $/awme/stocket/models/till/fields.yaml
+
+# Model Class name
+modelClass: AWME\Stocket\Models\Till
+
+# Default redirect location
+defaultRedirect: awme/stocket/tills
+
+# Create page
+create:
+    title: Create Till
+    redirect: awme/stocket/tills/update/:id
+    redirectClose: awme/stocket/tills
+
+# Update page
+update:
+    title: Edit Till
+    redirect: awme/stocket/tills
+    redirectClose: awme/stocket/tills
+
+# Preview page
+preview:
+    title: Preview Till

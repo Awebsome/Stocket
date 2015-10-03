@@ -1,0 +1,28 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    action:
+        label: awme.stocket::lang.tills.deposit_withdrawl
+        type: dropdown
+        span: left
+        options: 
+            deposit: awme.stocket::lang.tills.deposit
+            withdrawal: awme.stocket::lang.tills.withdrawal
+    seller:
+        type: text
+        cssClass: hidden
+
+    cash:
+        label: Cash
+        type: number
+        required: true
+        span: left
+
+    description:
+            label: awme.stocket::lang.invoice.description
+            type: textarea
+            span: left
+            required: true

@@ -42,6 +42,20 @@ return [
         'return_to_manage_sales' => 'Volver a gestión de ventas',
     ],
 
+    'tills' => [
+    	'menu_label' 	=> 'Caja',
+    	'opening_till' 	=> 'Apertura de caja',
+    	'closing_till' 	=> 'Cierre de caja',
+    	'deposit' 		=> 'Ingreso de Dinero',
+    	'sale' 			=> 'Nueva Venta',
+    	'withdrawal' 	=> 'Retiro de Dinero',
+    	'deposit_withdrawl' 	=> 'Ingreso / Retiro',
+    	'opening_successfully'		=> 'Apertuda de caja realizada con éxito.',
+    	'already_opening'		=> 'Ya haz realizado la apertura de caja o aún tienes un cierre pendiente.',
+    	'closed_successfully'		=> 'Cierra de caja realizado con éxito.',
+    	'already_closed'		=> 'Ya haz realizado el cierre de caja o aún no haz hecho una apertura.',
+    ],
+
     'invoice' => [
     	'name' 			=> 'Nombre',
     	'fullname' 		=> 'Nombre Completo',

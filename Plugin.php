@@ -71,7 +71,6 @@ class Plugin extends PluginBase
                 'order'       => 300,
 
                 'sideMenu' => [
-
                     'sales' =>   [
                         'label'       => 'awme.stocket::lang.sales.menu_label',
                         'icon'        => 'icon-cart-plus',
@@ -79,6 +78,13 @@ class Plugin extends PluginBase
                         'permissions' => ['awme.stocket.*'],
                     ],
 
+                    'tills' =>   [
+                        'label'       => 'awme.stocket::lang.tills.menu_label',
+                        'icon'        => 'icon-money',
+                        'url'         => Backend::url('awme/stocket/tills'),
+                        'permissions' => ['awme.stocket.*'],
+                    ],
+                    
                     'products' =>   [
                         'label'       => 'awme.stocket::lang.products.menu_label',
                         'icon'        => 'icon-cubes',

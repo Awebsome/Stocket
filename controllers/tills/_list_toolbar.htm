@@ -1,0 +1,32 @@
+<div data-control="toolbar">
+	<button
+	    type="button"
+	    data-request="onOpenTill"
+	    data-request-confirm="Hacer Apertura de caja desde 09:15hs?"
+	    data-hotkey="ctrl+enter"
+	    class="btn btn-success oc-icon-key invoice-checkout"
+	    name="onOpenTill"
+	    value="openTill"
+	    >
+	    <?=trans("awme.stocket::lang.tills.opening_till")?>
+	</button>
+
+	<button
+	    type="button"
+	    data-request="onCloseTill"
+	    data-request-confirm="Hacer Cierre de caja desde 09:15hs hasta 21:00hs?"
+	    data-hotkey="ctrl+end"
+	    class="btn btn-warning oc-icon-lock invoice-checkout"
+	    name="onCloseTill"
+	    value="closeTill"
+	    >
+	    <?=trans("awme.stocket::lang.tills.closing_till")?>
+	</button>
+
+	<a
+        href="<?= Backend::url('awme/stocket/tills/create') ?>"
+        class="btn btn-danger oc-icon-money">
+        <?=trans("awme.stocket::lang.tills.deposit_withdrawl")?>
+    </a>
+
+</div>
