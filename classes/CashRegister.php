@@ -165,10 +165,10 @@ class CashRegister
 		return (object) $till;
 	}
 
-	public function close()
+	public function close($summary = null)
 	{
         $Till = new Till;
-        $Till->action 		= 'closing_till';
+        $Till->action 		= ($summary) ? 'summary' : 'closing_till';
         $Till->seller 		= BackendAuth::getUser()->first_name;
         $Till->cash 		= $this->onClosing()->total_cash_sales;
         $Till->credit_card 	= $this->onClosing()->total_credit_sales;

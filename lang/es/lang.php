@@ -77,13 +77,17 @@ return [
         'deposit'       => 'Ingreso de Dinero',
         'sale'          => 'Nueva Venta',
         'withdrawal'    => 'Retiro de Dinero',
+        'summary'       => 'Resumen de caja',
 
+        'summary_till'       => 'Resumen de caja',
+        'confirm_summary'       => '¿Desea generar un resumen de caja?, esto solo tiene uso informativo y en absoluto no afecta al cierre.',
         'deposit_withdrawl'     => 'Ingreso / Retiro',
         'confirm_opening'       => '¿Desea realizar la apertura de caja?',
         'confirm_closed'       => '¿Desea realizar el cierre de caja correspondiente?',
         'opening_successfully'  => 'Apertuda de caja realizada con éxito.',
         'already_opening'       => 'Ya haz realizado la apertura de caja o aún tienes un cierre pendiente.',
         'closed_successfully'       => 'Cierra de caja realizado con éxito.',
+        'summary_successfully'       => 'Resumen de caja realizado con éxito, el resumen es solo de uso informativo.',
         'already_closed'        => 'Ya haz realizado el cierre de caja o aún no haz hecho una apertura.',
     ],
 

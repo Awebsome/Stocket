@@ -86,4 +86,27 @@ class Tills extends Controller
             return  Flash::error(trans('awme.stocket::lang.tills.already_closed'));
         endif;
     }
+
+    public function onSummaryTill()
+    {
+        /**
+         * Button Validation
+         */
+        if (Request::input('onSummaryTill') != 'summaryTill')
+            throw new ApplicationException('Invalid value');
+
+        $CashRegister = new CashRegister;
+        
+        if($CashRegister->is_open()):
+            /**
+             * Exec open function
+             */
+            $CashRegister->close('summary');
+
+            Flash::warning(trans('awme.stocket::lang.tills.summary_successfully'));
+            return Redirect::to(Backend::url("awme/stocket/tills"));
+        else: 
+            return  Flash::error(trans('awme.stocket::lang.tills.already_closed'));
+        endif;
+    }
 }

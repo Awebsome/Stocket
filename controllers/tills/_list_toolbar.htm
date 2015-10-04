@@ -41,4 +41,17 @@
 	    <?=trans("awme.stocket::lang.tills.closing_till")?>
 	</button>
 
+	<button
+	    type="button"
+	    data-request="onSummaryTill"
+	    data-request-confirm="<?=trans('awme.stocket::lang.tills.confirm_summary')?>"
+	    data-hotkey="ctrl+end"
+	    class="btn btn-success btn-sm oc-icon-bar-chart invoice-checkout pull-right"
+	    name="onSummaryTill"
+	    value="summaryTill"
+	    <?=(!$cash_register['is_open']) ? 'disabled="disabled"' : '';?>
+	    >
+	    <?=trans("awme.stocket::lang.tills.summary_till")?>
+	</button>
+
 </div>
