@@ -57,4 +57,38 @@ class Till extends Model
     {
         $this->attributes['seller'] = BackendAuth::getUser()->first_name;
     }
+
+
+    /**
+     * Filtros por fecha
+     * @param  [type] $query [description]
+     * @return [type]        [description]
+     */
+    public function scopeShowYear($query)
+    {
+        $show = date("Y");
+        $date = $show.'-01-01 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+
+    public function scopeShowMonth($query)
+    {
+        $show = date("Y-m");
+        $date = $show.'-01 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+
+    public function scopeShowWeek($query)
+    {
+        $show = date("Y-m-d", strtotime('-1 week'));
+        $date = $show.' 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+ 
+    public function scopeShowToday($query)
+    {
+        $show = date("Y-m-d");
+        $date = $show.' 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
 }

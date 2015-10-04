@@ -65,6 +65,11 @@ class Sale extends Model
     public $attachOne = [];
     public $attachMany = [];
 
+    /**
+     * Validar si la caja esta abierta,
+     * antes de crear una venta.
+     * @return [type] [description]
+     */
     public function beforeCreate()
     {
         if (!CashRegister::is_open()) {
@@ -74,6 +79,11 @@ class Sale extends Model
         }
     }
 
+    /**
+     * valida que el invoice no este cerrado
+     * antes del update.
+     * @return [type] [description]
+     */
     public function beforeUpdate()
     {
         if (Self::find($this->id)->status == 'closed') {
@@ -83,8 +93,74 @@ class Sale extends Model
         }
     }
 
+    /**
+     * borra la venta correspondiente de la caja
+     * @return [type] [description]
+     */
     public function beforeDelete()
     {
         Till::where('action', trans('awme.stocket::lang.tills.sale'))->where('op_id', $this->id)->delete();
     }
+
+    /**
+     * Muestra solo las ventas abiertas
+     */
+    public function scopeOpenOnly($query)
+    {
+        return $query->where('status', 'open');
+    }
+
+    /**
+     * Muestra solo las ventas abiertas
+     */
+    public function scopeToday($query)
+    {
+        return $query->where('created_at','>=', '2015-10-03 19:34:28');
+    }
+
+    
+
+    /**
+     * Filtros por fecha
+     * @param  [type] $query [description]
+     * @return [type]        [description]
+     */
+    public function scopeShowYear($query)
+    {
+        $show = date("Y");
+        $date = $show.'-01-01 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+
+    public function scopeShowMonth($query)
+    {
+        $show = date("Y-m");
+        $date = $show.'-01 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+
+    public function scopeShowWeek($query)
+    {
+        $show = date("Y-m-d", strtotime('-1 week'));
+        $date = $show.' 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+ 
+    public function scopeShowToday($query)
+    {
+        $show = date("Y-m-d");
+        $date = $show.' 00:00:00';
+        return $query->where('created_at','>=', $date);
+    }
+
+
+
+
+    public function scopePayment($query, $categories)
+    {
+        /*return $query->whereHas('categories', function($q) use ($categories) {
+            $q->whereIn('id', $categories);
+        });*/
+    }
+
 }

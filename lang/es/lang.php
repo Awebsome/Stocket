@@ -6,6 +6,14 @@ return [
         'description' => 'Plugin de comercio para October, que le permite configurar una tienda local y en línea con facilidad.'
     ],
 
+    'filters' => [
+        'year' => 'Todo el Año',
+        'month' => 'Este Mes',
+        'week' => 'Esta Semana',
+        'today' => 'Hoy',
+        'open_only' => 'Ocultar Cerradas',
+    ],
+
     'sales' => [
         'menu_label'    => 'Ventas',
         'product'       => 'Producto',

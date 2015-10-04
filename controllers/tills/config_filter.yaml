@@ -1,0 +1,23 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+scopes:
+    year:
+        label: awme.stocket::lang.filters.year
+        type: checkbox
+        scope: ShowYear
+
+    month:
+        label: awme.stocket::lang.filters.month
+        type: checkbox
+        scope: ShowMonth
+
+    week:
+        label: awme.stocket::lang.filters.week
+        type: checkbox
+        scope: ShowWeek
+
+    today:
+        label: awme.stocket::lang.filters.today
+        type: checkbox
+        scope: ShowToday

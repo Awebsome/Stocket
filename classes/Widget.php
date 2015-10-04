@@ -83,7 +83,7 @@ class Widget
 
     public function getCoveredExpenses(){
 
-        return ($this->getProfit() / $this->getExpenses()) * 100;
+        return @($this->getProfit() / $this->getExpenses()) * 100;
     }
 
     /**

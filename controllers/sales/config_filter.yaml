@@ -1,0 +1,43 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+scopes:
+    year:
+        label: awme.stocket::lang.filters.year
+        type: checkbox
+        scope: ShowYear
+
+    month:
+        label: awme.stocket::lang.filters.month
+        type: checkbox
+        scope: ShowMonth
+
+    week:
+        label: awme.stocket::lang.filters.week
+        type: checkbox
+        scope: ShowWeek
+
+    today:
+        label: awme.stocket::lang.filters.today
+        type: checkbox
+        scope: ShowToday
+
+    open_only:
+        label: awme.stocket::lang.filters.open_only
+        type: checkbox
+        scope: OpenOnly
+
+    payment:
+
+        # Filter name
+        label: rainlab.blog::lang.posts.category
+
+        # Model Class name
+        modelClass: AWME\Stocket\Models\Category
+
+        # Model attribute to display for the name
+        nameFrom: name
+
+        # Apply query scope
+        scope: Payment
+        #scope: openonly
