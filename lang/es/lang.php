@@ -26,6 +26,8 @@ return [
         'profit'        => 'Ingresos',
         'expense'       => 'Gastos',
         'current_month' => 'Mes Corriente',
+        'confirm_closed_sale' => '¿Desea confirmar esta venta?',
+        'sale_is_closed' => 'Esta venta ya ha sido confirmada!',
 
         'title'         => 'Titulo',
         'quantity'      => 'Cantidad',
@@ -57,11 +59,17 @@ return [
         'in_till'    => 'En Caja',
 
         'created_at'    => 'Fecha y Hora',
+
+        /**
+         * No modificar varname
+         * use tills for operations.
+         */
         'opening_till'  => 'Apertura de caja',
         'closing_till'  => 'Cierre de caja',
         'deposit'       => 'Ingreso de Dinero',
         'sale'          => 'Nueva Venta',
         'withdrawal'    => 'Retiro de Dinero',
+
         'deposit_withdrawl'     => 'Ingreso / Retiro',
         'confirm_opening'       => '¿Desea realizar la apertura de caja?',
         'confirm_closed'       => '¿Desea realizar el cierre de caja correspondiente?',

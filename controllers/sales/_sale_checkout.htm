@@ -2,9 +2,10 @@
 <button
     type="button"
     data-request="onCheckout"
-    data-request-confirm="Do you really want to close this sale?"
+    data-request-confirm="<?=e(trans('awme.stocket::lang.sales.confirm_closed_sale'))?>"
     data-hotkey="ctrl+enter"
     class="btn-lg btn-success oc-icon-shopping-cart invoice-checkout"
+    <?=($invoiceStatus == 'closed') ? 'disabled="disabled"':'' ?>
     >
     <?=e(trans('awme.stocket::lang.sales.checkout'))?>
 </button>

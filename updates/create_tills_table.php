@@ -12,6 +12,7 @@ class CreateTillsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('action');
+            $table->integer('op_id')->nullable();
             
             $table->string('seller');
 

@@ -43,16 +43,16 @@
             <p class="description"><?=e(trans('awme.stocket::lang.sales.current_month'))?></p>
         </div>
 
-        <div class="scoreboard-item title-value">
-            <h4><?=e(trans('awme.stocket::lang.sales.customer'))?></h4>
-            <p class="oc-icon-star"><?=$widget['customer']?></p>
-            <p class="description"><?=e(trans('awme.stocket::lang.sales.current_customer'))?></p>
-        </div>
-
         <div class="scoreboard-item title-value goal-meter" data-control="goal-meter" data-value="<?=$widget['covered_expenses']?>">
             <h4><?=e(trans('awme.stocket::lang.sales.covered_expenses'))?></h4>
             <p><?=$widget['covered_expenses']?>%</p>
             <p class="description"><?=e(trans('awme.stocket::lang.sales.month_meter'))?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?=e(trans('awme.stocket::lang.sales.customer'))?></h4>
+            <p class="oc-icon-star"><?=$widget['customer']?></p>
+            <p class="description"><?=e(trans('awme.stocket::lang.sales.current_customer'))?></p>
         </div>
     </div>
 </div>

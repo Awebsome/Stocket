@@ -63,13 +63,13 @@ class Sales extends Controller
      */
     public function update($recordId = null, $context = null)
     {
-       
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
 
-        $this->vars['formModel'] = Sale::find($recordId);
-        
-        $this->vars['invoice'] = $Invoice->make();
+        $Sale = Sale::find($recordId);
+
+        $this->vars['invoice'] = $Invoice->get();
+        $this->vars['invoiceStatus'] = $Sale->status;
         $this->asExtension('FormController')->update($recordId, $context);
     }
 
@@ -81,37 +81,22 @@ class Sales extends Controller
     {
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
-
-        $this->vars['formModel'] = Sale::find($recordId);
+        $Invoice->opRecalculate();
         
-        $this->vars['invoice'] = $Invoice->make();
+        $this->vars['invoice'] = $Invoice->get();
+        $this->vars['invoiceStatus'] = Sale::find($recordId)->status;
         $this->asExtension('FormController')->update($recordId, $context);
-
-        Flash::info(trans('awme.stocket::lang.sales.sale_recalculate'));
     }
 
     public function onCheckout($recordId = null, $context = null)
     {
         $Invoice = new Invoice;
         $Invoice->saleId = $recordId;
-        $Invoice->opStock();
-
-        $Sale = Sale::find($recordId);
         
-        $Till = new Till;
-        $Till->action = 'sale';
-        $Till->seller = BackendAuth::getUser()->first_name;
+        $Invoice->setStock(); # Descontar en stock
 
-        if($Sale->payment == 'cash')
-            $Till->cash = $Sale->total; 
-        else $Till->credit_card = $Sale->total;
+        $Invoice->close(); # Cerrar venta
 
-        $Till->save();
-
-
-        Flash::success(trans('awme.stocket::lang.sales.sale_successfully'));
-
-        //Redirect To Sale
         return Redirect::to(Backend::url('awme/stocket/sales'));
     }
 }

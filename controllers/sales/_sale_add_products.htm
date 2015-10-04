@@ -1,1 +1,3 @@
-<?= $this->relationRender('products') ?>
+<?if(@$invoiceStatus != 'closed'): ?>
+	<?= $this->relationRender('products') ?>
+<?endif;?>

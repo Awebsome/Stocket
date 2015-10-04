@@ -1,10 +1,11 @@
 <?php namespace AWME\Stocket\Classes;
 
 use Request;
-
+use BackendAuth;
 use AWME\Stocket\Classes\Calculator as Calc;
 
 use AWME\Stocket\Models\Product;
+use AWME\Stocket\Models\Till;
 use AWME\Stocket\Models\Sale;
 use AWME\Stocket\Models\ItemSale;
 
@@ -14,27 +15,49 @@ class Invoice{
         $this->saleId = "";
     }
 
-	/**
-	 * Make Invoice / Item List & Total
-	 * @param  [array] $saleId
-	 * @return [array]        
-	 */
-	public function make()
-	{
+
+
+    public function close()
+    {
+        $Sale = Sale::find($this->saleId);
+        $Sale->status = 'closed';
+        $Sale->save();
+
+        $Till = new Till;
+        $Till->action = 'sale';
+        $Till->op_id = $this->saleId;
+        $Till->seller = BackendAuth::getUser()->first_name;
+
+        if($Sale->payment == 'cash')
+        $Till->cash = $Sale->total; 
+        else $Till->credit_card = $Sale->total;
+
+        $Till->save();
+    }
+    /**
+     * 
+     */
+    
+    public function get()
+    {
+        $invoice['items'] = $this->getItems();
+        $invoice['subtotal'] = $this->getSubtotal();
+        $invoice['total'] = $this->getTotal();
+
+        $invoice['taxes']           = $this->getTaxes();
+        $invoice['tax_discount']    = $this->opTaxesDiscount();
+
+        return $invoice;
+    }
+
+
+    public function opRecalculate()
+    {
         $this->setQty();
         $this->setSubtotal();
         $this->setTaxes();
         $this->setTotal();
-
-        $invoice['items']       = $this->getItems();
-        $invoice['subtotal']    = $this->getSubtotal();
-
-        $invoice['taxes']           = $this->getTaxes();
-        $invoice['tax_discount']    = $this->opTaxesDiscount();
-        $invoice['total']           = $this->opTotal();
-
-		return $invoice;
-	}
+    }
 	
 
     /**
@@ -157,7 +180,8 @@ class Invoice{
      */
     public function getSubtotal()
     {
-        return Calc::format($this->setSubtotal());
+        $subtotal = Sale::find($this->saleId)->subtotal;
+        return Calc::format($subtotal);
     }
     
     /**
@@ -228,6 +252,12 @@ class Invoice{
         return $total;
 	}
 
+    public function getTotal()
+    {
+        $total = Sale::find($this->saleId)->total;
+        return Calc::format($total);
+    }
+
     public function setTotal(){
 
         $Sale = Sale::find($this->saleId);
@@ -235,7 +265,11 @@ class Invoice{
         $Sale->save();
     }
 
-    public function opStock()
+    /**
+     * [setStock description]
+     * Descontar producto del stock Models\Product
+     */
+    public function setStock()
     {
         $items = $this->getItems();
 
@@ -244,12 +278,5 @@ class Invoice{
             $Product->stock = Calc::resta([$Product->stock],[$attr['qty']]);
             $Product->save();
         }
-
-
-        $Sale = Sale::find($this->saleId);
-        $Sale->status = 'closed';
-        $Sale->total = $this->opTotal();
-        $Sale->save();
-
     }
 }

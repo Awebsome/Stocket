@@ -3,8 +3,11 @@
 use Model;
 use Carbon\Carbon;
 
+use Flash;
 use ValidationException;
 
+use AWME\Stocket\Models\Till;
+use AWME\Stocket\Classes\Invoice;
 use AWME\Stocket\Classes\CashRegister;
 /**
  * Sale Model
@@ -71,4 +74,17 @@ class Sale extends Model
         }
     }
 
+    public function beforeUpdate()
+    {
+        if (Self::find($this->id)->status == 'closed') {
+            throw new ValidationException([
+               'sale_is_closed' => trans('awme.stocket::lang.sales.sale_is_closed'),
+            ]);
+        }
+    }
+
+    public function beforeDelete()
+    {
+        Till::where('action', trans('awme.stocket::lang.tills.sale'))->where('op_id', $this->id)->delete();
+    }
 }

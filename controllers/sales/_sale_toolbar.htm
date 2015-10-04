@@ -1,6 +1,7 @@
 <?php
     $isCreate = $this->formGetContext() == 'create';
     $pageUrl = isset($pageUrl) ? $pageUrl : null;
+
 ?>
 <div class="form-buttons loading-indicator-container">
 
@@ -9,10 +10,12 @@
             type="submit"
             data-request="onSave"
             data-request-data="redirect:<?= (int) $isCreate ?>"
-            data-hotkey="ctrl+s, cmd+s"
+            data-hotkey="enter, ctrl+s, cmd+s"
             data-load-indicator="Saving Product..."
             class="btn btn-primary oc-icon-check save"
-            
+            <?php if (!$isCreate): ?>
+                <?=($invoiceStatus == 'closed') ? 'disabled="disabled"':'' ?>
+            <?php endif;?>
             >
             <?= e(trans('backend::lang.form.save')) ?>
         </button>
@@ -24,7 +27,9 @@
             data-hotkey="shift+enter, cmd+enter"
             data-load-indicator="Saving Product..."
             class="btn btn-default oc-icon-check save"
-            
+            <?php if (!$isCreate): ?>
+                <?=($invoiceStatus == 'closed') ? 'disabled="disabled"':'' ?>
+            <?php endif;?>
             >
 
             <?= e(trans('backend::lang.form.save_and_close'))?>
@@ -35,9 +40,10 @@
             type="button"
             data-request="onRecalculate" 
             data-request-update="'sale_items_fields': '#invoice-table'"
-            data-hotkey="ctrl+s, cmd+s, enter"
+            data-hotkey="enter, ctrl+r, ctrl+s"
+            data-load-indicator="Recalculate Product..."
             class="btn btn-info oc-icon-calculator"
-            
+            <?=($invoiceStatus == 'closed') ? 'disabled="disabled"':'' ?>
             >
             <?=e(trans('awme.stocket::lang.sales.recalculate'))?>
         </button>
