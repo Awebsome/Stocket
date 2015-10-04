@@ -8,6 +8,7 @@ use AWME\Stocket\Models\ItemSale;
 
 class Widget
 {
+
     public function getCustomer()
     {
         $user = BackendAuth::getUser();
@@ -66,7 +67,12 @@ class Widget
      */
     public function getProfit()
     {
-        $profit = array_column(Sale::all()->toArray(), 'total');
+        # $current_year = date('Y').'-01-01 00:00:00';
+        $current_month = date('Y-m').'-01 00:00:00';
+        # $current_week = date("Y-m-d", strtotime('-1 week')).' 00:00:00';
+        # $current_day = date('Y-m-d').' 00:00:00';*/
+        
+        $profit = array_column(Sale::where('created_at', '>=', $current_month)->where('status','closed')->get()->toArray(), 'total');
         return array_sum($profit);
     }
 
@@ -77,13 +83,18 @@ class Widget
      */
     public function getExpenses()
     {
-        $expenses = array_column(Expense::all()->toArray(), 'amount');
+        $current_month = date('Y-m').'-01 00:00:00';
+        $expenses = array_column(Expense::where('created_at', '>=', $current_month)->get()->toArray(), 'amount');
         return array_sum($expenses);
     }
 
     public function getCoveredExpenses(){
 
-        return @($this->getProfit() / $this->getExpenses()) * 100;
+        if($this->getProfit() >= $this->getExpenses()){
+            $covered = 100;
+        }else $covered = ($this->getProfit() / $this->getExpenses()) * 100;
+
+        return @$covered;
     }
 
     /**
