@@ -27,17 +27,17 @@ scopes:
         type: checkbox
         scope: OpenOnly
 
-    payment:
+    #payment:
 
         # Filter name
-        label: rainlab.blog::lang.posts.category
+    #    label: rainlab.blog::lang.posts.category
 
         # Model Class name
-        modelClass: AWME\Stocket\Models\Category
+    #    modelClass: AWME\Stocket\Models\Category
 
         # Model attribute to display for the name
-        nameFrom: name
+    #    nameFrom: name
 
         # Apply query scope
-        scope: Payment
+    #   scope: Payment
         #scope: openonly
