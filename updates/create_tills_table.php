@@ -17,7 +17,7 @@ class CreateTillsTable extends Migration
             $table->string('seller');
 
             $table->decimal('cash', 10, 2)->nullable();
-            $table->decimal('credit_card', 10, 2)->nullable();
+            $table->decimal('payable', 10, 2)->nullable();
             $table->decimal('total', 10, 2)->nullable();
             $table->decimal('till', 10, 2)->nullable();
 

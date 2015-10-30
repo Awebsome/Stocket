@@ -46,9 +46,10 @@ return [
         'total'         => 'Total',
         'total_sales'   => 'Ventas Totales',
         'card'          => 'Tarjeta',
+        'debit'         => 'Débito',
         'cash'          => 'Efectivo',
         'credit_card'   => 'Credito',
-        'current_account' => 'Debito',
+        'current_account' => 'CTE',
 
         'please_opening_cash_register' => 'Usted aún no ha hecho la apertura de caja, para realizar ventas.',
         'sale_recalculate' => 'Factura recalculada exitosamente!',
@@ -66,6 +67,7 @@ return [
         'action'    => 'Operación',
         'description'    => 'Descripción',
         'in_till'    => 'En Caja',
+        'payable'    => 'Deb/Cred',
 
         'created_at'    => 'Fecha y Hora',
 
@@ -110,8 +112,9 @@ return [
         'country'       => 'Pais',
 
         'cash'          => 'Efectivo',
-        'credit_card'   => 'Tarjeta',
-        'current_account' => 'Debito',
+        'debit'         => 'Débito',
+        'credit_card'   => 'Crédito',
+        'current_account' => 'CTE',
     ],
 
     'products' => [

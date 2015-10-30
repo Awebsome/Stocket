@@ -70,11 +70,12 @@ secondaryTabs:
             type: radio
             span: left
             cssClass: payment-block
-            default: cash
             options:
                 cash: awme.stocket::lang.invoice.cash
+                debit: awme.stocket::lang.invoice.debit
                 credit_card: awme.stocket::lang.invoice.credit_card
                 current_account: awme.stocket::lang.invoice.current_account
+            default: cash
 
         checkout:
                 tab: awme.stocket::lang.invoice.invoicing

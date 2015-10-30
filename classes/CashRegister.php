@@ -23,7 +23,7 @@ class CashRegister
         $Till->action = 'opening_till';
         $Till->seller = BackendAuth::getUser()->first_name;
         $Till->cash = 0;
-        $Till->credit_card = 0;
+        $Till->payable = 0;
         $Till->total = 0;
         $Till->till = 0;
         $Till->save();
@@ -142,8 +142,8 @@ class CashRegister
 		 * Total de Ventas
 		 * @var decimal
 		 */
-		$credit_sales = Till::where('action', Self::getActionTrans('sale'))->where('created_at','>=', $lastOpen)->get()->toArray();
-		$credit_sales = array_sum(array_column($credit_sales, 'credit_card'));
+		$payable_sales = Till::where('action', Self::getActionTrans('sale'))->where('created_at','>=', $lastOpen)->get()->toArray();
+		$payable_sales = array_sum(array_column($payable_sales, 'payable'));
 		
 		/**
 		 * Total de Retiros
@@ -156,9 +156,9 @@ class CashRegister
 			'total_in_open_till' => $getLastOpen['till'],		# total de depositos hechos
 			'total_deposites' => $deposites,		# total de depositos hechos
 			'total_cash_sales' => $cash_sales,		# total de ventas en efectivo
-			'total_credit_sales' => $credit_sales,	# total de ventas en tarjeta
+			'total_payable_sales' => $payable_sales,	# total de ventas en tarjeta
 			'total_witdrawls' => $withdrawals,		# total de retiros de dinero
-			'total_all_sales' => Calc::suma([$cash_sales, $credit_sales]),	# total de todas las ventas
+			'total_all_sales' => Calc::suma([$cash_sales, $payable_sales]),	# total de todas las ventas
 			'total_till'	=> Calc::resta([$cash_sales, $deposites, $getLastOpen['till']], [$withdrawals]), # lo que queda en caja
 		];
 
@@ -171,7 +171,7 @@ class CashRegister
         $Till->action 		= ($summary) ? 'summary' : 'closing_till';
         $Till->seller 		= BackendAuth::getUser()->first_name;
         $Till->cash 		= $this->onClosing()->total_cash_sales;
-        $Till->credit_card 	= $this->onClosing()->total_credit_sales;
+        $Till->payable 		= $this->onClosing()->total_payable_sales;
         $Till->total 		= $this->onClosing()->total_all_sales;
         $Till->till 		= $this->onClosing()->total_till;
         $Till->save();

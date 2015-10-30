@@ -46,13 +46,15 @@ class Widget
     public function getSales()
     {
         
-        $cash               = count(Sale::where('payment','cash')->get());
-        $credit_card        = count(Sale::where('payment','credit_card')->get());
-        $current_account    = count(Sale::where('payment','current_account')->get());
+        $cash               = count(Sale::where('payment',trans('awme.stocket::lang.invoice.cash'))->get());
+        $debit              = count(Sale::where('payment',trans('awme.stocket::lang.invoice.debit'))->get());
+        $credit_card        = count(Sale::where('payment',trans('awme.stocket::lang.invoice.credit_card'))->get());
+        $current_account    = count(Sale::where('payment',trans('awme.stocket::lang.invoice.current_account'))->get());
         $total              = count(Sale::all()->toArray());
 
         $sales = [
             'cash' => $cash,
+            'debit' => $debit,
             'credit_card' => $credit_card,
             'current_account' => $current_account,
             'total' => $total,

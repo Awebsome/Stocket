@@ -28,8 +28,8 @@ columns:
     cash:
         label: awme.stocket::lang.sales.cash
 
-    credit_card: 
-        label: awme.stocket::lang.sales.card
+    payable: 
+        label: awme.stocket::lang.tills.payable
 
     total:
         label: awme.stocket::lang.sales.total

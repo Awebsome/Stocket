@@ -66,6 +66,17 @@ class Sale extends Model
     public $attachMany = [];
 
     /**
+     * Set the Payment field
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function setPaymentAttribute($value)
+    {
+        $this->attributes['payment'] = trans('awme.stocket::lang.invoice.'.$value);
+    }
+
+    /**
      * Validar si la caja esta abierta,
      * antes de crear una venta.
      * @return [type] [description]

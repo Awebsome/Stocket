@@ -28,9 +28,9 @@ class Invoice{
         $Till->op_id = $this->saleId;
         $Till->seller = BackendAuth::getUser()->first_name;
 
-        if($Sale->payment == 'cash')
+        if($Sale->payment == trans('awme.stocket::lang.invoice.cash'))
         $Till->cash = $Sale->total; 
-        else $Till->credit_card = $Sale->total;
+        else $Till->payable = $Sale->total;
 
         $Till->save();
     }
