@@ -45,9 +45,10 @@ return [
         'discount'      => 'Descuento',
         'total'         => 'Total',
         'total_sales'   => 'Ventas Totales',
+        'card'          => 'Tarjeta',
         'cash'          => 'Efectivo',
-        'credit_card'   => 'Tarjeta',
-        'current_account' => 'CTE',
+        'credit_card'   => 'Credito',
+        'current_account' => 'Debito',
 
         'please_opening_cash_register' => 'Usted aún no ha hecho la apertura de caja, para realizar ventas.',
         'sale_recalculate' => 'Factura recalculada exitosamente!',
@@ -110,7 +111,7 @@ return [
 
         'cash'          => 'Efectivo',
         'credit_card'   => 'Tarjeta',
-        'current_account' => 'CTE',
+        'current_account' => 'Debito',
     ],
 
     'products' => [

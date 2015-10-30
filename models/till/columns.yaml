@@ -29,7 +29,7 @@ columns:
         label: awme.stocket::lang.sales.cash
 
     credit_card: 
-        label: awme.stocket::lang.sales.credit_card
+        label: awme.stocket::lang.sales.card
 
     total:
         label: awme.stocket::lang.sales.total

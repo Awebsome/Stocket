@@ -123,7 +123,7 @@ class Widget
          * Cuenta los valores
          * @var array
          */
-        $Sales = array_count_values($TopItemSales);
+        $Sales = @array_count_values($TopItemSales);
 
         /**
          * Ordena el array > to <

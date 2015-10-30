@@ -25,7 +25,7 @@ class CashRegister
         $Till->cash = 0;
         $Till->credit_card = 0;
         $Till->total = 0;
-        $Till->till = $this->tillOnLastClosing();
+        $Till->till = 0;
         $Till->save();
 	}
 
