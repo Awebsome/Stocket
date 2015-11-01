@@ -64,7 +64,7 @@ class Widget
     }
     /**
      * [getProfit]
-     * Ingresos totales
+     * Ingresos totales de ventas del mes corriente
      * @return float [data]
      */
     public function getProfit()

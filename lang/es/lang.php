@@ -97,6 +97,7 @@ return [
     'invoice' => [
         'name'          => 'Nombre',
         'fullname'      => 'Nombre Completo',
+        'defaultname'   => 'Nueva Venta',
         'invoice'       => 'Factura',
         'invoice_number' => 'Numero de Factura',
         'invoicing'     => 'Facturación',
