@@ -1,3 +1,4 @@
+
 <?php
 
 return [
@@ -138,8 +139,10 @@ return [
     ],
 
     'categories' => [
-        'menu_label'    => 'Categorias',
-        'category'      => 'Categoria',
+        'menu_label'    => 'Categorías',
+        'categories'      => 'Categorías',
+        'category'      => 'Categoría',
+        'select_category' => 'Por favor, guarde y seleccione una categoría',
     ],
 
     'expenses' => [
