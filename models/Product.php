@@ -2,6 +2,7 @@
 
 use Model;
 use Carbon\Carbon;
+use AWME\Stocket\Models\ProdCat;
 
 /**
  * Product Model
@@ -38,7 +39,7 @@ class Product extends Model
         ],
         'model' => ['required', 'between:1,255'],
         'stock' => ['required','numeric'],
-        'sku' => ['required','unique:awme_stocket_products'],
+        'sku' => ['unique:awme_stocket_products'],
         'price' => ['required','numeric','min:00.25', 'max:99999999.99'],
     ];
 
@@ -46,6 +47,26 @@ class Product extends Model
      * @var array Attributes to mutate as dates
      */
     protected $dates = ['available_at', 'created_at', 'updated_at'];
+
+    /**
+     * Set the user's Seller
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function setSkuAttribute($value)
+    {
+        if(!$value){
+            $categories = ProdCat::where('product_id', $this->id)->first();
+            
+            if($categories)
+            {
+                $category = $categories->category_id;
+            }else $category = '0';
+            
+            $this->attributes['sku'] = str_pad($category, 5, "0", STR_PAD_LEFT).'-'.str_pad($this->id, 5, "0", STR_PAD_LEFT);
+        }else $this->attributes['sku'] = $value;
+    }
 
     /**
      * @var array Relations

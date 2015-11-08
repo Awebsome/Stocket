@@ -79,7 +79,6 @@ secondaryTabs:
             label: SKU
             type: text
             span: left
-            required: true
 
         price:
             tab: awme.stocket::lang.products.product
