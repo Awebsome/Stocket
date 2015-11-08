@@ -56,8 +56,10 @@ class Product extends Model
      */
     public function setSkuAttribute($value)
     {
-        if(!$value){
-            $categories = ProdCat::where('product_id', $this->id)->first();
+        
+        $categories = ProdCat::where('product_id', $this->id)->first();
+        
+        if(!$value || strpos($value, '00000-') !== false){
             
             if($categories)
             {

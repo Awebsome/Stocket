@@ -3,6 +3,9 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 
+use AWME\Stocket\Models\Product;
+use AWME\Stocket\Models\ProdCat;
+
 /**
  * Products Back-end Controller
  */
@@ -30,5 +33,24 @@ class Products extends Controller
 
         $this->addCss($this->assetsPath.'/css/modal-form.css');
         $this->addJs($this->assetsPath.'/js/product-form.js');
+    }
+
+    public function resetProductsSku(){
+
+        $products = Product::all();
+
+        foreach ($products as $prod => $value) {
+            
+            $categories = ProdCat::where('product_id', $value->id)->first();
+            
+            if($categories)
+            {
+                $category = $categories->category_id;
+            }else $category = '0';
+            
+            $product = Product::find($value->id);
+            $product->sku = str_pad($category, 5, "0", STR_PAD_LEFT).'-'.str_pad($value->id, 5, "0", STR_PAD_LEFT);
+            $product->save();
+        }
     }
 }
