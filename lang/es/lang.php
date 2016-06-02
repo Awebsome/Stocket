@@ -3,7 +3,7 @@
 
 return [
     'plugin' => [
-        'name' => 'Stock',
+        'name' => 'Stocket',
         'description' => 'Plugin de comercio para October, que le permite configurar una tienda local y en línea con facilidad.'
     ],
 
